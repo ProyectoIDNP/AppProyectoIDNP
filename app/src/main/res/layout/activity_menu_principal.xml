@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tapas"
-    tools:context=".prueba.MenuPrincipal">
+    tools:context=".prueba.activities.MenuPrincipal">
 
     <LinearLayout
 

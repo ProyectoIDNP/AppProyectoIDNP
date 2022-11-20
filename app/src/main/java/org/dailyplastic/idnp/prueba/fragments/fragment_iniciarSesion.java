@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.activities.MainActivity;
 
 public class fragment_iniciarSesion extends Fragment {
 

@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 
@@ -18,13 +18,13 @@ public class EstadisticasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View estadisticasFragment =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
+        View statisticsFragment =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         PieChartCategoriesFragment pieChartCategoriesFragment = new PieChartCategoriesFragment();
 
-        Button buttonCategories = estadisticasFragment.findViewById(R.id.buttonCategorias);
-        Button buttonPresentation = estadisticasFragment.findViewById(R.id.buttonPresentacion);
+        Button buttonCategories = statisticsFragment.findViewById(R.id.buttonCategories);
+        Button buttonPresentation = statisticsFragment.findViewById(R.id.buttonPresentation);
 
         transaction.replace(R.id.pieChart, pieChartCategoriesFragment).commit();
 
@@ -48,6 +48,6 @@ public class EstadisticasFragment extends Fragment {
             }
         });
 
-        return estadisticasFragment;
+        return statisticsFragment;
     }
 }

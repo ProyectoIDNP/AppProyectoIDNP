@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 

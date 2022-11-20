@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

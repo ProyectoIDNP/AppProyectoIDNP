@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="50dp"
     android:background="@color/white"
-    tools:context=".prueba.fragment_iniciarSesion">
+    tools:context=".prueba.fragments.fragment_iniciarSesion">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

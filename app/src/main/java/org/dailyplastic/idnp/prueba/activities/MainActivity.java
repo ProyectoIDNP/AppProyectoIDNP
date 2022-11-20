@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.fragments.CategoriasFragment;
+import org.dailyplastic.idnp.prueba.fragments.EstadisticasFragment;
+import org.dailyplastic.idnp.prueba.fragments.MiConsumoFragment;
+import org.dailyplastic.idnp.prueba.fragments.PlasticoFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView  = findViewById(R.id.bottom_navigation);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,categoriasFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,estadisticasFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
