@@ -9,13 +9,13 @@ import android.view.View;
 
 public class PieChart extends View {
 
-    private final int[] DEFAULT_COLORS = new int[]{
-            Color.parseColor("#004600"),
-            Color.parseColor("#005D00"),
-            Color.parseColor("#007400"),
-            Color.parseColor("#008B00"),
-            Color.parseColor("#54C154"),
-            Color.parseColor("#A8E7A8")};
+    private static final int[] DEFAULT_COLORS = new int[]{
+            Color.parseColor("#001F10"),
+            Color.parseColor("#002F18"),
+            Color.parseColor("#003E20"),
+            Color.parseColor("#3F7457"),
+            Color.parseColor("#7EA58F"),
+            Color.parseColor("#BDD3C6")};
     private static int[] values;
     private static String[] data;
     private static int[] colors;
