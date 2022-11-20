@@ -45,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.plasticos:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,plasticoFragment).commit();
                         return true;
-
                 }
-
                 return false;
             }
         });

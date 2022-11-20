@@ -67,7 +67,7 @@
                         android:textSize="13dp" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/buttonIniciarSesion"
                         android:layout_width="166dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
