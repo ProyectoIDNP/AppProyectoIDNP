@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.fragments.fragment_iniciarSesion;
+import org.dailyplastic.idnp.prueba.fragments.fragment_registrarse;
 
 public class MenuPrincipal extends AppCompatActivity {
 

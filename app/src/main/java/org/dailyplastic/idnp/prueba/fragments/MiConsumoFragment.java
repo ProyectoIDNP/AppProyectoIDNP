@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba;
+package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 
@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 
 import org.dailyplastic.idnp.R;
 
-public class PlasticoFragment extends Fragment {
+
+public class MiConsumoFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plastico, container, false);
+        return inflater.inflate(R.layout.fragment_mi_consumo, container, false);
     }
 }

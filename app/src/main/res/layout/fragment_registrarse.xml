@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:background="@color/white"
-    tools:context=".prueba.fragment_registrarse">
+    tools:context=".prueba.fragments.fragment_registrarse">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -91,7 +91,7 @@
                         android:textColor="#000000"
                         android:textSize="8dp" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/buttonRegistrarse"
                         android:layout_width="166dp"
                         android:layout_height="wrap_content"

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/estadisticas"
+        android:title="Estadisticas"
+        android:icon="@drawable/icon_estadisticas"/>
     <item android:id="@+id/categorias"
         android:title="Categorias"
         android:icon="@drawable/icon_categorias"/>
@@ -8,10 +11,6 @@
         android:title="Plasticos"
         android:icon="@drawable/icon_plasticos"/>
     <item android:id="@+id/miConsumo"
-        android:title="MiConsumo"
+        android:title="Mi Consumo"
         android:icon="@drawable/icon_consumo"/>
-    <item android:id="@+id/estadisticas"
-        android:title="Estadisticas"
-        android:icon="@drawable/icon_estadisticas"/>
-
 </menu>
