@@ -9,4 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gris">#FFAAAAAA</color>
     <color name="verde_boton">#FF47CC65</color>
+
+    <color name="green">#169C5D</color>
+    <color name="red">#DA0A0A</color>
+    <color name="orange">#FF5722</color>
+    <color name="yellow">#FFDD00</color>
+    <color name="greenC">#89FF00</color>
+    <color name="blue">#0027FF</color>
+    <color name="silver">#C3C8C8</color>
 </resources>

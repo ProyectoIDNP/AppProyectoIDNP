@@ -2,7 +2,6 @@ package org.dailyplastic.idnp.prueba;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
+
 import org.dailyplastic.idnp.R;
 
-public class CategoriasFragment extends Fragment {
+public class fragment_presentaciones extends Fragment {
 
     Button mostrarCategorias;
     Button mostrarPresentaciones;
@@ -23,7 +22,7 @@ public class CategoriasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.fragment_categorias, container, false);
+        view =inflater.inflate(R.layout.fragment_presentaciones, container, false);
 
         String[] plastic;
         plastic = getResources().getStringArray(R.array.plasticos);
@@ -59,9 +58,10 @@ public class CategoriasFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, plastic);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_list_item_1,plastic);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
         return view;
     }
+
 }

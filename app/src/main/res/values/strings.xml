@@ -2,11 +2,12 @@
     <string name="app_name">Pruebas_Lista_Navegation</string>
 
     <string-array name="plasticos">
-       <item>PET-PETE</item>
+        <item>PET-PETE</item>
         <item>HDPE</item>
         <item>V</item>
         <item>LDPE</item>
         <item>PP</item>
         <item>PS</item>
     </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

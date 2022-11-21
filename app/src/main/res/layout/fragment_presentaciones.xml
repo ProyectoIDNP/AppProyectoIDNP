@@ -10,18 +10,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/categoriasLayout"
+        android:id="@+id/presentacionesLayout"
         android:orientation="horizontal">
 
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:text="Categorías" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:text="Presentaciones"/>
 
         <Button
             android:id="@+id/buttonCat"
@@ -62,7 +62,8 @@
             android:fontFamily="sans-serif-black"
             android:background="@drawable/tarjetas_categorias"
             android:backgroundTint="@color/red"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            />
         <TextView
             android:id="@+id/textView3"
             android:layout_width="150dp"

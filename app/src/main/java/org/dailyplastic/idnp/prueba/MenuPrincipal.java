@@ -21,7 +21,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame1,fragmentIniciarSesion).commit();
 
-
         Button button1 = findViewById(R.id.button5);
         Button button2 = findViewById(R.id.button6);
 
