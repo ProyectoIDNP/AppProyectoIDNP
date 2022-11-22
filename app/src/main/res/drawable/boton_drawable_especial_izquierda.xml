@@ -12,7 +12,7 @@
             <item android:right="4dp" android:bottom="4dp">
                 <shape android:shape="rectangle">
 
-                    <solid android:color="@color/verde_boton"/>
+                    <solid android:color="@color/green_secondary"/>
                     <corners android:topLeftRadius="60dp" android:bottomLeftRadius="60dp"/>
                 </shape>
             </item>

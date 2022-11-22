@@ -73,10 +73,9 @@
                         android:layout_marginTop="50dp"
                         android:background="@drawable/boton_drawable_estandar"
                         android:text="Iniciar Sesion"
-                        android:textColor="#FFB8EF84"
+                        android:textColor="@color/green_tertiary"
                         android:textSize="10dp" />
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

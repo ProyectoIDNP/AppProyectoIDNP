@@ -48,7 +48,7 @@ public class PieChart extends View {
 
         RectF rectF = new RectF(0,0,getWidth(),getWidth());
 
-        for(int i = 0; i < values.length; i++){
+        for(int i = 0; i < values.length; i++) {
             paint.setColor(colors[i]);
             canvas.drawArc(rectF, start, valuesDegrees[i],true, paint);
             start = start + valuesDegrees[i];

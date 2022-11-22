@@ -1,5 +1,7 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,9 +18,6 @@ import org.dailyplastic.idnp.R;
 
 public class CategoriasFragment extends Fragment {
 
-    Button mostrarCategorias;
-    Button mostrarPresentaciones;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
@@ -27,32 +26,35 @@ public class CategoriasFragment extends Fragment {
         String[] plastic;
         plastic = getResources().getStringArray(R.array.plasticos);
 
-        mostrarCategorias = view.findViewById(R.id.buttonCat);
-        mostrarPresentaciones = view.findViewById(R.id.buttonPres);
+        Button buttonCategories = view.findViewById(R.id.buttonCat);
+        Button buttonPresentations = view.findViewById(R.id.buttonPres);
 
-        mostrarCategorias.setOnClickListener(new View.OnClickListener(){
+        buttonCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
+        buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+
+        buttonCategories.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                buttonCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
+                buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
-
                 CategoriasFragment categoriasFragment = new CategoriasFragment();
-
                 transaction.replace(R.id.categoriasLayout,categoriasFragment);
                 transaction.commit();
             }
         });
 
-        mostrarPresentaciones.setOnClickListener(new View.OnClickListener(){
+        buttonPresentations.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
+                buttonCategories.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
-
                 fragment_presentaciones fragmentPresentaciones = new fragment_presentaciones();
-
                 transaction.replace(R.id.presentacionesLayout,fragmentPresentaciones);
                 transaction.commit();
             }

@@ -54,7 +54,7 @@
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/button5"
+                            android:id="@+id/login"
                             android:layout_width="118dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
@@ -72,7 +72,7 @@
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/button6"
+                            android:id="@+id/register"
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
