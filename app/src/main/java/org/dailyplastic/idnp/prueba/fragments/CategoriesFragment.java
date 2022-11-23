@@ -28,7 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CategoriasFragment extends Fragment {
+public class CategoriesFragment extends Fragment {
 
     List<Category> categories;
     CategoryService categoryService;
@@ -58,7 +58,7 @@ public class CategoriasFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
-                CategoriasFragment categoriasFragment = new CategoriasFragment();
+                CategoriesFragment categoriasFragment = new CategoriesFragment();
                 transaction.replace(R.id.categoriasLayout,categoriasFragment);
                 transaction.commit();
             }

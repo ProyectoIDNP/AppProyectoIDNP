@@ -9,7 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import org.dailyplastic.idnp.R;
-import org.dailyplastic.idnp.prueba.fragments.CategoriasFragment;
+import org.dailyplastic.idnp.prueba.fragments.CategoriesFragment;
 import org.dailyplastic.idnp.prueba.fragments.StatisticsFragment;
 import org.dailyplastic.idnp.prueba.fragments.MyPlasticConsumptionFragment;
 import org.dailyplastic.idnp.prueba.fragments.PlasticsFragment;
@@ -17,7 +17,7 @@ import org.dailyplastic.idnp.prueba.fragments.PlasticsFragment;
 public class FragmentControlActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    CategoriasFragment categoriasFragment = new CategoriasFragment();
+    CategoriesFragment categoriasFragment = new CategoriesFragment();
     StatisticsFragment estadisticasFragment = new StatisticsFragment();
     MyPlasticConsumptionFragment miConsumoFragment = new MyPlasticConsumptionFragment();
     PlasticsFragment plasticoFragment = new PlasticsFragment();

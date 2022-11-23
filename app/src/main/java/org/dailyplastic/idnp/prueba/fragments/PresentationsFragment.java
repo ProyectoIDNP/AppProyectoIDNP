@@ -37,7 +37,7 @@ public class PresentationsFragment extends Fragment {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
 
-                CategoriasFragment categoriasFragment = new CategoriasFragment();
+                CategoriesFragment categoriasFragment = new CategoriesFragment();
 
                 transaction.replace(R.id.categoriasLayout,categoriasFragment);
                 transaction.commit();
