@@ -19,7 +19,7 @@ public class PieChartCategoriesFragment extends Fragment {
 
         View pieChartCategoriesFragment = inflater.inflate(R.layout.fragment_pie_chart_categories, container, false);
         LinearLayout linearLayout = (LinearLayout) pieChartCategoriesFragment.findViewById(R.id.pieChartCategories);
-        int[] values = {20, 20, 40, 100, 20, 1};
+        int[] values = {20, 20, 40, 100, 20, 10};
         String[] data = {"PET o PETE (tereftalato de polietileno)", "HDPE (polietileno de alta densidad)", "PVC (policloruro de vinilo)", "LDPE (Polietileno de baja densidad)", "PP (Polipropileno)", "PS (Poliestireno)"};
         linearLayout.addView(new PieChart(getActivity(), values, data));
 
