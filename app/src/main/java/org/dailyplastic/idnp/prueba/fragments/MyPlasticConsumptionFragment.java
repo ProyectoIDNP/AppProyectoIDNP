@@ -11,10 +11,11 @@ import android.view.ViewGroup;
 import org.dailyplastic.idnp.R;
 
 
-public class fragment_registrarse extends Fragment {
+public class MyPlasticConsumptionFragment extends Fragment {
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragview = inflater.inflate(R.layout.fragment_registrarse, container, false);
-        return fragview;
+        return inflater.inflate(R.layout.fragment_my_plastic_consumption, container, false);
     }
 }

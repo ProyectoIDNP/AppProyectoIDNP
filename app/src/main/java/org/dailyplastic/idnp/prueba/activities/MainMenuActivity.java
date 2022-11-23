@@ -10,22 +10,22 @@ import android.view.View;
 import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
-import org.dailyplastic.idnp.prueba.fragments.fragment_iniciarSesion;
-import org.dailyplastic.idnp.prueba.fragments.fragment_registrarse;
+import org.dailyplastic.idnp.prueba.fragments.LoginFragment;
+import org.dailyplastic.idnp.prueba.fragments.RegisterFragment;
 
-public class MenuPrincipal extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity {
 
-    fragment_iniciarSesion fragmentIniciarSesion = new fragment_iniciarSesion();
+    LoginFragment fragmentIniciarSesion = new LoginFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame1,fragmentIniciarSesion).commit();
+        setContentView(R.layout.activity_main_menu);
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,fragmentIniciarSesion).commit();
 
-        Button buttonLogin = findViewById(R.id.login);
-        Button buttonRegister = findViewById(R.id.register);
+        Button buttonLogin = findViewById(R.id.buttonLogin);
+        Button buttonRegister = findViewById(R.id.buttonRegister);
 
         buttonLogin.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
         buttonRegister.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
@@ -36,8 +36,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 buttonLogin.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
                 buttonRegister.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                fragment_iniciarSesion fragment1 = new fragment_iniciarSesion();
-                transaction.replace(R.id.frame1, fragment1);
+                LoginFragment fragment1 = new LoginFragment();
+                transaction.replace(R.id.mainFrame, fragment1);
                 transaction.commit();
             }
         });
@@ -48,8 +48,8 @@ public class MenuPrincipal extends AppCompatActivity {
                 buttonRegister.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_secondary)));
                 buttonLogin.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                fragment_registrarse fragment2 = new fragment_registrarse();
-                transaction.replace(R.id.frame1, fragment2);
+                RegisterFragment fragment2 = new RegisterFragment();
+                transaction.replace(R.id.mainFrame, fragment2);
                 transaction.commit();
             }
         });

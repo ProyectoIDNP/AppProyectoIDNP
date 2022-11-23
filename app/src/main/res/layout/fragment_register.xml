@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="10dp"
     android:background="@color/white"
-    tools:context=".prueba.fragments.fragment_iniciarSesion">
+    tools:context=".prueba.fragments.RegisterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -15,12 +15,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="492dp"
+            android:layout_height="580dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="399dp"
+                android:layout_height="525dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -29,14 +29,15 @@
                     android:layout_width="216dp"
                     android:layout_height="30dp"
                     android:gravity="center"
-                    android:text="Iniciar Sesion"
+                    android:text="Registrarse"
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="255dp"
-                    android:layout_height="240dp"
+                    android:layout_height="320dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -46,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#000000"
                         android:ems="10"
-                        android:hint="Correo o nombre de usuario"
+                        android:hint="Nombre"
                         android:inputType="textPersonName"
                         android:singleLine="false"
                         android:textColor="#000000"
@@ -54,28 +55,53 @@
                         android:textSize="13dp" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName2"
-                        android:layout_width="199dp"
+                        android:id="@+id/editTextTextPersonName3"
+                        android:layout_width="205dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="#000000"
                         android:ems="10"
-                        android:hint="Contraseña "
+                        android:hint="Correo"
                         android:inputType="textPersonName"
                         android:textColor="#000000"
                         android:textColorHint="#A8A8A8"
                         android:textSize="13dp" />
 
+                    <EditText
+                        android:id="@+id/editTextTextPersonName6"
+                        android:layout_width="204dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:backgroundTint="#000000"
+                        android:ems="10"
+                        android:hint="Contraseña"
+                        android:inputType="textPersonName"
+                        android:textColor="#000000"
+                        android:textColorHint="#A8A8A8"
+                        android:textSize="13dp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:buttonTint="#000000"
+                        android:clickable="true"
+                        android:text="Aceptar los terminos y condiciones"
+                        android:textColor="#000000"
+                        android:textSize="8dp" />
+
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/buttonIniciarSesion"
+                        android:id="@+id/buttonRegistrarse"
                         android:layout_width="166dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
-                        android:background="@drawable/boton_drawable_estandar"
-                        android:text="Iniciar Sesion"
+                        android:background="@drawable/button_drawable_standard"
+                        android:text="Registrarse"
                         android:textColor="@color/green_tertiary"
                         android:textSize="10dp" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

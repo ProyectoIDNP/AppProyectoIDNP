@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".prueba.activities.MainActivity">
+    tools:context=".prueba.activities.FragmentControlActivity">
  <FrameLayout
      android:layout_width="match_parent"
      android:layout_height="match_parent"
@@ -21,6 +21,6 @@
      android:background="#009688"
      app:itemIconTint="@color/white"
      app:itemTextColor="#FFFFFF"
-     app:menu="@menu/bottom_navigation_menu" />
+     app:menu="@menu/button_navigation_menu" />
 
 </RelativeLayout>

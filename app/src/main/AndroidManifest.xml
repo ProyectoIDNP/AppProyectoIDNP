@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Pruebas_Lista_Navegation"
         tools:targetApi="31">
         <activity
-            android:name=".prueba.activities.MenuPrincipal"
+            android:name=".prueba.activities.MainMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".prueba.activities.MainActivity"
+            android:name=".prueba.activities.FragmentControlActivity"
             android:exported="false">
 
 

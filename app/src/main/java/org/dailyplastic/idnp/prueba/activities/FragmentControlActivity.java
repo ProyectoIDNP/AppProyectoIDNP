@@ -10,23 +10,23 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.fragments.CategoriasFragment;
-import org.dailyplastic.idnp.prueba.fragments.EstadisticasFragment;
-import org.dailyplastic.idnp.prueba.fragments.MiConsumoFragment;
-import org.dailyplastic.idnp.prueba.fragments.PlasticoFragment;
+import org.dailyplastic.idnp.prueba.fragments.StatisticsFragment;
+import org.dailyplastic.idnp.prueba.fragments.MyPlasticConsumptionFragment;
+import org.dailyplastic.idnp.prueba.fragments.PlasticsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class FragmentControlActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     CategoriasFragment categoriasFragment = new CategoriasFragment();
-    EstadisticasFragment estadisticasFragment = new EstadisticasFragment();
-    MiConsumoFragment miConsumoFragment = new MiConsumoFragment();
-    PlasticoFragment plasticoFragment = new PlasticoFragment();
+    StatisticsFragment estadisticasFragment = new StatisticsFragment();
+    MyPlasticConsumptionFragment miConsumoFragment = new MyPlasticConsumptionFragment();
+    PlasticsFragment plasticoFragment = new PlasticsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fragment_control);
         bottomNavigationView  = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,estadisticasFragment).commit();
 

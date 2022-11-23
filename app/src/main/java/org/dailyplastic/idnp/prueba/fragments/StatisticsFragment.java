@@ -15,15 +15,12 @@ import android.widget.Button;
 import org.dailyplastic.idnp.R;
 
 
-public class EstadisticasFragment extends Fragment {
-
-    boolean activeButtonCategories = true;
-    boolean activeButtonPresentations = false;
+public class StatisticsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View statisticsFragment =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
+        View statisticsFragment =  inflater.inflate(R.layout.fragment_statistics, container, false);
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         PieChartCategoriesFragment pieChartCategoriesFragment = new PieChartCategoriesFragment();

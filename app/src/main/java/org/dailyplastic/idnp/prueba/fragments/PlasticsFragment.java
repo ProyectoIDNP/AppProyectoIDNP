@@ -10,12 +10,11 @@ import android.view.ViewGroup;
 
 import org.dailyplastic.idnp.R;
 
-
-public class MiConsumoFragment extends Fragment {
+public class PlasticsFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mi_consumo, container, false);
+        return inflater.inflate(R.layout.fragment_plastics, container, false);
     }
 }

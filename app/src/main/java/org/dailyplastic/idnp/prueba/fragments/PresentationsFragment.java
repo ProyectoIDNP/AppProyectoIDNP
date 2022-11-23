@@ -14,7 +14,7 @@ import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
 
-public class fragment_presentaciones extends Fragment {
+public class PresentationsFragment extends Fragment {
 
     Button mostrarCategorias;
     Button mostrarPresentaciones;
@@ -22,7 +22,7 @@ public class fragment_presentaciones extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view =inflater.inflate(R.layout.fragment_presentaciones, container, false);
+        view =inflater.inflate(R.layout.fragment_presentations, container, false);
 
         String[] plastic;
         plastic = getResources().getStringArray(R.array.plasticos);
@@ -51,7 +51,7 @@ public class fragment_presentaciones extends Fragment {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
 
-                fragment_presentaciones fragmentPresentaciones = new fragment_presentaciones();
+                PresentationsFragment fragmentPresentaciones = new PresentationsFragment();
 
                 transaction.replace(R.id.presentacionesLayout,fragmentPresentaciones);
                 transaction.commit();

@@ -16,7 +16,8 @@ public class PieChart extends View {
             Color.parseColor("#003E20"),
             Color.parseColor("#3F7457"),
             Color.parseColor("#7EA58F"),
-            Color.parseColor("#BDD3C6")};
+            Color.parseColor("#BDD3C6")
+    };
     private static int[] values;
     private static String[] data;
     private static int[] colors;

@@ -21,7 +21,7 @@ public class CategoriasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.fragment_categorias, container, false);
+        view = inflater.inflate(R.layout.fragment_categories, container, false);
 
         String[] plastic;
         plastic = getResources().getStringArray(R.array.plasticos);
@@ -54,7 +54,7 @@ public class CategoriasFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setReorderingAllowed(true);
-                fragment_presentaciones fragmentPresentaciones = new fragment_presentaciones();
+                PresentationsFragment fragmentPresentaciones = new PresentationsFragment();
                 transaction.replace(R.id.presentacionesLayout,fragmentPresentaciones);
                 transaction.commit();
             }

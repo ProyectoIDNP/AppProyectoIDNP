@@ -3,14 +3,14 @@
 
     <item android:id="@+id/estadisticas"
         android:title="Estadisticas"
-        android:icon="@drawable/icon_estadisticas"/>
+        android:icon="@drawable/ic_statistics"/>
     <item android:id="@+id/categorias"
         android:title="Categorias"
-        android:icon="@drawable/icon_categorias"/>
+        android:icon="@drawable/ic_categories"/>
     <item android:id="@+id/plasticos"
         android:title="Plasticos"
-        android:icon="@drawable/icon_plasticos"/>
+        android:icon="@drawable/ic_plastics"/>
     <item android:id="@+id/miConsumo"
         android:title="Mi Consumo"
-        android:icon="@drawable/icon_consumo"/>
+        android:icon="@drawable/ic_my_plastic_consumption"/>
 </menu>
