@@ -28,7 +28,7 @@ public class StatisticsFragment extends Fragment {
         Button buttonCategories = statisticsFragment.findViewById(R.id.buttonCategories);
         Button buttonPresentations = statisticsFragment.findViewById(R.id.buttonPresentation);
 
-        transaction.replace(R.id.pieChart, pieChartCategoriesFragment).commit();
+        transaction.replace(R.id.spaceGraphics, pieChartCategoriesFragment).commit();
 
         buttonCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_primary)));
         buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
@@ -40,7 +40,7 @@ public class StatisticsFragment extends Fragment {
                 buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 PieChartCategoriesFragment pieChartCategoriesFragment = new PieChartCategoriesFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.pieChart, pieChartCategoriesFragment);
+                transaction.replace(R.id.spaceGraphics, pieChartCategoriesFragment);
                 transaction.commit();
             }
         });
@@ -52,7 +52,7 @@ public class StatisticsFragment extends Fragment {
                 buttonCategories.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 PieChartPresentationFragment pieChartPresentationFragment = new PieChartPresentationFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.pieChart, pieChartPresentationFragment);
+                transaction.replace(R.id.spaceGraphics, pieChartPresentationFragment);
                 transaction.commit();
             }
         });

@@ -6,7 +6,6 @@
     android:background="@color/white">
 
     <FrameLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -17,10 +16,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="784dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="20dp">
+            android:layout_marginVertical="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
@@ -57,9 +56,9 @@
             <View
                 android:id="@+id/view4"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_height="4dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:background="@android:color/darker_gray" />
 
             <TextView
@@ -73,9 +72,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center">
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buttonCategories"
@@ -103,37 +102,37 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:text="Mostrar por:"/>
+                    android:text="Mostrar por:"
+                    android:textColor="#000000" />
 
                 <RadioButton
                     android:id="@+id/radioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:buttonTint="@color/green_primary"
                     android:text="Unidades"
-                    android:textSize="12sp"
-                    android:layout_marginStart="20dp"
                     android:textColor="@color/black"
+                    android:textSize="12sp"
                     tools:ignore="MissingConstraints" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:buttonTint="@color/green_primary"
                     android:text="Peso"
-                    android:textSize="12sp"
-                    android:layout_marginStart="20dp"
                     android:textColor="@color/black"
+                    android:textSize="12sp"
                     tools:ignore="MissingConstraints" />
 
             </LinearLayout>
@@ -141,24 +140,23 @@
             <View
                 android:id="@+id/view3"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_height="4dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:background="@android:color/darker_gray" />
 
             <FrameLayout
-                android:id="@+id/pieChart"
+                android:id="@+id/spaceGraphics"
                 android:layout_width="300dp"
                 android:layout_height="450dp"
-                android:layout_gravity="center">
-            </FrameLayout>
+                android:layout_gravity="center"></FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="20dp"
                 android:gravity="right"
+                android:orientation="horizontal"
                 tools:ignore="RtlHardcoded">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -166,9 +164,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:paddingHorizontal="20dp"
                     android:background="@drawable/button_drawable_standard"
                     android:backgroundTint="@color/green_primary"
+                    android:paddingHorizontal="20dp"
                     android:text="Registrar Consumo"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp" />
@@ -177,9 +175,9 @@
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="20dp"
                     android:background="@drawable/button_drawable_standard"
                     android:backgroundTint="@color/green_primary"
+                    android:paddingHorizontal="20dp"
                     android:text="Ver historial"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp" />

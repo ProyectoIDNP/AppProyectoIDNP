@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pruebas_Lista_Navegation</string>
+    <string name="app_name">Daily Plastic</string>
 
     <string-array name="plasticos">
         <item>PET-PETE</item>

@@ -1,15 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".prueba.activities.FragmentControlActivity">
+    android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Plasticos Fragment"
-        android:textSize="25dp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="10dp"
 
-</RelativeLayout>
+        tools:context=".prueba.activities.FragmentControlActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="784dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonPlasticsCategories"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_drawable_special_left"
+                    android:backgroundTint="@color/green_primary"
+                    android:text="Categorias"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonPlasticsPresentation"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_drawable_special_right"
+                    android:backgroundTint="@color/green_primary"
+                    android:clickable="true"
+                    android:text="Presentacion"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/cardsCategoriesAndPresentations"
+                android:layout_width="300dp"
+                android:layout_height="450dp"
+                android:layout_gravity="center"></FrameLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>
