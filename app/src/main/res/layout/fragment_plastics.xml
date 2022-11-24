@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -54,7 +55,7 @@
             <FrameLayout
                 android:id="@+id/cardsCategoriesAndPresentations"
                 android:layout_width="300dp"
-                android:layout_height="450dp"
+                android:layout_height="536dp"
                 android:layout_gravity="center"></FrameLayout>
 
         </LinearLayout>

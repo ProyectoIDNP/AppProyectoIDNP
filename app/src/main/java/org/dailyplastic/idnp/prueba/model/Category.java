@@ -8,6 +8,17 @@ public class Category {
     private String created;
     private String updated;
 
+    public Category() {
+
+    }
+
+    public Category(Integer id, String name, String created, String updated) {
+        this.id = id;
+        this.name = name;
+        this.created = created;
+        this.updated = updated;
+    }
+
     public Integer getId() {
         return id;
     }
