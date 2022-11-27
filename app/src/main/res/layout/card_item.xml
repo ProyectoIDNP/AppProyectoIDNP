@@ -12,7 +12,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="168dp"
+            android:layout_height="128dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
 
@@ -27,7 +27,7 @@
                 <TextView
                     android:id="@+id/textViewCategory"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="match_parent"
 
                     android:layout_gravity="center"
 

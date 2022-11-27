@@ -11,12 +11,13 @@ import androidx.annotation.Nullable;
 
 import org.dailyplastic.idnp.prueba.model.Category;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import org.dailyplastic.idnp.R;
 
 public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
 
-    public CategoryGridViewAdapter(@NonNull Context context, ArrayList<Category> courseModelArrayList) {
+    public CategoryGridViewAdapter(@NonNull Context context, List<Category> courseModelArrayList) {
         super(context, 0, courseModelArrayList);
     }
 

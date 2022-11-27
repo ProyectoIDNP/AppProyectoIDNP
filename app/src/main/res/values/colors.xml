@@ -18,4 +18,12 @@
     <color name="greenC">#89FF00</color>
     <color name="blue">#0027FF</color>
     <color name="silver">#C3C8C8</color>
+    <!-- Category Colors -->
+    <color name="PET">#7A16FC</color>
+    <color name="PEAD">#6E8166</color>
+    <color name="PVC">#C2150A</color>
+    <color name="PEBD">#FE561D</color>
+    <color name="PP">#36D78B</color>
+    <color name="PS">#8EB6AB</color>
+    <color name="O">#33A3EB</color>
 </resources>
