@@ -42,7 +42,7 @@ public class PlasticsCategoriesFragment extends Fragment {
         getAll();
 
         categoriesGridView = plasticCategoriesFragment.findViewById(R.id.gridViewCategories);
-        ArrayList<Category> categoriesModelArrayList = new ArrayList<Category>();
+        /*ArrayList<Category> categoriesModelArrayList = new ArrayList<Category>();
 
         categoriesModelArrayList.add(new Category(1, "Categoria 1", "10/12/2022", "34/35/2009"));
         categoriesModelArrayList.add(new Category(2, "Categoria 2", "10/12/2022", "34/35/2009"));
@@ -53,7 +53,7 @@ public class PlasticsCategoriesFragment extends Fragment {
 
         CategoryGridViewAdapter adapter = new CategoryGridViewAdapter(getActivity(), categoriesModelArrayList);
 
-        categoriesGridView.setAdapter(adapter);
+        categoriesGridView.setAdapter(adapter);*/
 
         return plasticCategoriesFragment;
     }
@@ -76,8 +76,8 @@ public class PlasticsCategoriesFragment extends Fragment {
                 }
                 categories = response.body();
                 //Colocacion de los datos en el gridView
-                /*CategoryGridViewAdapter adapter = new CategoryGridViewAdapter(getActivity(), categories);
-                categoriesGridView.setAdapter(adapter);*/
+                CategoryGridViewAdapter adapter = new CategoryGridViewAdapter(getActivity(), categories);
+                categoriesGridView.setAdapter(adapter);
 
                 categories.forEach(c -> Log.i("Categorias: ", c.toString()));
             }
