@@ -1,5 +1,6 @@
 package org.dailyplastic.idnp.prueba.adapters;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import org.dailyplastic.idnp.prueba.model.Category;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.dailyplastic.idnp.R;
 
@@ -36,9 +37,10 @@ public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
         }
 
         Category categoryModel = getItem(position);
-        TextView categoryTextView = listItemView.findViewById(R.id.textViewCategory);
-        ImageView categoryImageView = listItemView.findViewById(R.id.imageViewCategory);
-        CardView categoryCardView = listItemView.findViewById(R.id.cardViewCategory);
+        TextView categoryTextView = listItemView.findViewById(R.id.cardItemTextView);
+        ImageView categoryImageView = listItemView.findViewById(R.id.cardItemImageView);
+        CardView categoryCardView = listItemView.findViewById(R.id.cardViewDescription);
+        ConstraintLayout categoryContainerTextView = listItemView.findViewById(R.id.cardItemContainerTextView);
 
         categoryTextView.setText(categoryModel.getName());
 
@@ -49,35 +51,35 @@ public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
         switch (categoryAcronym) {
             case "PET":
                 categoryImageView.setImageResource(R.drawable.ic_image_pet);
-                categoryCardView.setCardBackgroundColor(0XFF7A16FC);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PET));
                 break;
             case "PEAD":
                 categoryImageView.setImageResource(R.drawable.ic_image_pead);
-                categoryCardView.setCardBackgroundColor(0XFF6E8166);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PEAD));
                 break;
             case "PVC":
                 categoryImageView.setImageResource(R.drawable.ic_image_pvc);
-                categoryCardView.setCardBackgroundColor(0XFFC2150A);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PVC));
                 break;
             case "PEBD":
                 categoryImageView.setImageResource(R.drawable.ic_image_pebd);
-                categoryCardView.setCardBackgroundColor(0XFFFE561D);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PEBD));
                 break;
             case "PP":
                 categoryImageView.setImageResource(R.drawable.ic_image_pp);
-                categoryCardView.setCardBackgroundColor(0XFF36D78B);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PP));
                 break;
             case "PS":
                 categoryImageView.setImageResource(R.drawable.ic_image_ps);
-                categoryCardView.setCardBackgroundColor(0XFF8EB6AB);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.PS));
                 break;
             case "O":
                 categoryImageView.setImageResource(R.drawable.ic_image_o);
-                categoryCardView.setCardBackgroundColor(0XFF33A3EB);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.O));
                 break;
             default:
                 categoryImageView.setImageResource(R.drawable.ic_image_not_available);
-                categoryCardView.setCardBackgroundColor(0XFF000000);
+                categoryContainerTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.Default));
                 break;
         }
 

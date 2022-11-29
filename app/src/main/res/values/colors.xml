@@ -26,4 +26,7 @@
     <color name="PP">#36D78B</color>
     <color name="PS">#8EB6AB</color>
     <color name="O">#33A3EB</color>
+
+    <!-- Colors not avalaible or default-->
+    <color name="Default">#FF000000</color>
 </resources>

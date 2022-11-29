@@ -19,7 +19,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp">
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewCategory"
+            android:id="@+id/cardViewDescription"
             android:layout_width="match_parent"
             android:layout_height="105dp"
             android:layout_gravity="center"
@@ -35,16 +35,24 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
 
-            <TextView
-                android:id="@+id/textViewCategory"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardItemContainerTextView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="TextView" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/cardItemTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -59,7 +67,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageViewCategory"
+                android:id="@+id/cardItemImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="top|center"

@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".prueba.fragments.PieChartCategoriesFragment">
+    tools:context=".prueba.fragments.PlasticsPresentationsFragment">
 
-    <LinearLayout
-        android:id="@+id/pieChartCategories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingVertical="20dp"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Plastic Presentation"
-            android:textColor="#EA1313" />
-    </LinearLayout>
-
-</FrameLayout>
+    <GridView
+        android:id="@+id/gridViewPresentations"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="6dp"
+        android:numColumns="2"
+        android:verticalSpacing="6dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
