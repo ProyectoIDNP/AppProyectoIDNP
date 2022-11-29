@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.dailyplastic.idnp.R;
 
 public class PlasticsFragment extends Fragment {
-
+    ListProductsFragment listProductsFragment = new ListProductsFragment();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class PlasticsFragment extends Fragment {
 
         Button buttonPlasticsCategories = plasticsFragment.findViewById(R.id.buttonPlasticsCategories);
         Button buttonPlaticsPresentations = plasticsFragment.findViewById(R.id.buttonPlasticsPresentation);
+        //Flotaing button
+        FloatingActionButton floatingButtonListPlastics = plasticsFragment.findViewById(R.id.floatingActionButtonListPlastics);
 
         transaction.replace(R.id.cardsCategoriesAndPresentations, plasticsCategoriesFragment).commit();
 
@@ -56,6 +60,13 @@ public class PlasticsFragment extends Fragment {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.cardsCategoriesAndPresentations, plasticsPresentationsFragment);
                 transaction.commit();
+            }
+        });
+
+        floatingButtonListPlastics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction().replace(R.id.container, listProductsFragment).commit();
             }
         });
 
