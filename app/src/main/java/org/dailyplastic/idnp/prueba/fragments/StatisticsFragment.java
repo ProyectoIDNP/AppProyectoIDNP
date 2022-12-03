@@ -2,8 +2,10 @@ package org.dailyplastic.idnp.prueba.fragments;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -30,14 +32,19 @@ public class StatisticsFragment extends Fragment {
 
         transaction.replace(R.id.spaceGraphics, pieChartCategoriesFragment).commit();
 
-        buttonCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_primary)));
-        buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+        ColorStateList green = ColorStateList.valueOf(getResources().getColor(R.color.green_primary, this.getContext().getTheme()));
+        Drawable buttonShape = ContextCompat.getDrawable(this.getContext(), R.drawable.button_drawable_standard);
+
+        buttonCategories.setBackgroundTintList(green);
+        buttonCategories.setBackground(buttonShape);
+        buttonPresentations.setBackgroundResource(0);
 
         buttonCategories.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                buttonCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_primary)));
-                buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                buttonCategories.setBackground(buttonShape);
+                buttonCategories.setBackgroundTintList(green);
+                buttonPresentations.setBackgroundResource(0);
                 PieChartCategoriesFragment pieChartCategoriesFragment = new PieChartCategoriesFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.spaceGraphics, pieChartCategoriesFragment);
@@ -48,8 +55,9 @@ public class StatisticsFragment extends Fragment {
         buttonPresentations.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                buttonPresentations.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_primary)));
-                buttonCategories.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                buttonPresentations.setBackground(buttonShape);
+                buttonPresentations.setBackgroundTintList(green);
+                buttonCategories.setBackgroundResource(0);
                 PieChartPresentationFragment pieChartPresentationFragment = new PieChartPresentationFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.spaceGraphics, pieChartPresentationFragment);

@@ -2,6 +2,7 @@ package org.dailyplastic.idnp.prueba.fragments;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -37,14 +38,19 @@ public class PlasticsFragment extends Fragment {
 
         transaction.replace(R.id.cardsCategoriesAndPresentations, plasticsCategoriesFragment).commit();
 
-        buttonPlasticsCategories.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_primary)));
-        buttonPlaticsPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+        ColorStateList green = ColorStateList.valueOf(getResources().getColor(R.color.green_primary, this.getContext().getTheme()));
+        Drawable buttonShape = ContextCompat.getDrawable(this.getContext(), R.drawable.button_drawable_standard);
+
+        buttonPlasticsCategories.setBackgroundTintList(green);
+        buttonPlasticsCategories.setBackground(buttonShape);
+        buttonPlaticsPresentations.setBackgroundResource(0);
 
         buttonPlasticsCategories.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                buttonPlasticsCategories.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.green_primary)));
-                buttonPlaticsPresentations.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                buttonPlasticsCategories.setBackground(buttonShape);
+                buttonPlasticsCategories.setBackgroundTintList(green);
+                buttonPlaticsPresentations.setBackgroundResource(0);
                 PlasticsCategoriesFragment plasticsCategoriesFragment1 = new PlasticsCategoriesFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.cardsCategoriesAndPresentations, plasticsCategoriesFragment1);
@@ -55,8 +61,9 @@ public class PlasticsFragment extends Fragment {
         buttonPlaticsPresentations.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                buttonPlaticsPresentations.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.green_primary)));
-                buttonPlasticsCategories.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                buttonPlaticsPresentations.setBackground(buttonShape);
+                buttonPlaticsPresentations.setBackgroundTintList(green);
+                buttonPlasticsCategories.setBackgroundResource(0);
                 PlasticsPresentationsFragment plasticsPresentationsFragment = new PlasticsPresentationsFragment();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.cardsCategoriesAndPresentations, plasticsPresentationsFragment);

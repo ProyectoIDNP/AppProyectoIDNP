@@ -3,12 +3,15 @@ import static android.content.ContentValues.TAG;
 import org.dailyplastic.idnp.prueba.objects.User;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -24,7 +27,6 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragview = inflater.inflate(R.layout.fragment_login, container, false);
-
         Button buttonLogin = fragview.findViewById(R.id.loginButtonLogin);
         emailOrName = (EditText) fragview.findViewById(R.id.registerName);
         password = (EditText) fragview.findViewById(R.id.loginPassword);

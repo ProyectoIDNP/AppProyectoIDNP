@@ -34,7 +34,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="270dp"
-                android:layout_height="414dp"
+                android:layout_height="430dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/fondo_blanco"
@@ -42,59 +42,45 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="413dp"
+                    android:layout_height="430dp"
                     android:orientation="horizontal">
 
                     <FrameLayout
                         android:id="@+id/mainFrame"
                         android:layout_width="match_parent"
-                        android:layout_height="414dp"
-                        android:background="@color/white">
-
-
-                    </FrameLayout>
+                        android:layout_height="430dp"
+                        android:background="@color/white"></FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="141dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:background="@drawable/button_drawable_standard"
+                        android:backgroundTint="@color/gris">
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/buttonLogin"
-                            android:layout_width="118dp"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="right"
                             android:background="@drawable/button_drawable_special_left"
-                            android:gravity="center"
                             android:text="Iniciar Sesion"
                             android:textColor="#FFFFFF"
                             android:textSize="10dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="120dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/buttonRegister"
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="left"
                             android:background="@drawable/button_drawable_special_right"
-                            android:clickable="true"
                             android:text="Registrarse"
                             android:textColor="#FFFFFF"
                             android:textSize="10dp" />
-
                     </LinearLayout>
 
                 </LinearLayout>
