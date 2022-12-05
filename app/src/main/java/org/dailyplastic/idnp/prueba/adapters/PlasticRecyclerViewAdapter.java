@@ -92,7 +92,7 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("*************** PLASTIC ***************");
+                    System.out.println("*************** PLASTIC DETAIL***************");
                 }
             });
         }

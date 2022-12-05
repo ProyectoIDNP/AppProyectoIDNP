@@ -1,4 +1,4 @@
-package org.dailyplastic.idnp.prueba.objects;
+package org.dailyplastic.idnp.prueba.model;
 
 public class User {
     public String emailOrName;
