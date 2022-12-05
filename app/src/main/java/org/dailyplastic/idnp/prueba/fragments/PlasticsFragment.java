@@ -1,7 +1,6 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -19,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.dailyplastic.idnp.R;
 
 public class PlasticsFragment extends Fragment {
-    ListProductsFragment listProductsFragment = new ListProductsFragment();
+    ListPlasticsFragment listPlasticsFragment = new ListPlasticsFragment();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,7 +73,7 @@ public class PlasticsFragment extends Fragment {
         floatingButtonListPlastics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getParentFragmentManager().beginTransaction().replace(R.id.container, listProductsFragment).commit();
+                getParentFragmentManager().beginTransaction().replace(R.id.container, listPlasticsFragment).commit();
             }
         });
 

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.model.Plastic;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,12 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
 
     List<Plastic> plasticList;
     List<Plastic> originalListPlastic;
+
+    public PlasticRecyclerViewAdapter(List<Plastic> plasticList) {
+        this.plasticList = plasticList;
+        originalListPlastic = new ArrayList<>();
+        originalListPlastic.addAll(plasticList);
+    }
 
     @NonNull
     @Override
@@ -32,6 +39,8 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
         holder.titlePlastic.setText(plasticList.get(position).getName());
         holder.categoryPlastic.setText(plasticList.get(position).getCategory());
         holder.presentationPlastic.setText(plasticList.get(position).getPresentation());
+        //cambiar por la fecha y hora en la que se agrego el plastico
+        holder.hourPlastic.setText(plasticList.get(position).getCreated());
         holder.imagePlastic.setImageResource(R.drawable.ic_image_not_available);
     }
 
@@ -68,6 +77,7 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
         TextView titlePlastic;
         TextView categoryPlastic;
         TextView presentationPlastic;
+        TextView hourPlastic;
         ImageView imagePlastic;
 
         public PlasticViewHolder(@NonNull View itemView) {
@@ -77,6 +87,7 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
             categoryPlastic = itemView.findViewById(R.id.recyclerItemSubtitle1);
             presentationPlastic = itemView.findViewById(R.id.recyclerItemSubtitle2);
             imagePlastic = itemView.findViewById(R.id.recyclerItemImageView);
+            hourPlastic = itemView.findViewById(R.id.recyclerItemHour);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

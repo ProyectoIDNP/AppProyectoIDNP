@@ -3,8 +3,9 @@ package org.dailyplastic.idnp.prueba.model;
 public class Plastic {
 
     private Integer id;
-    private Integer category;
-    private Integer presentation;
+    //Cambiar por las clases a category y presentation
+    private String category;
+    private String presentation;
     private String name;
     private Integer decompositionTime;
     private Integer unitWeight;
@@ -15,7 +16,7 @@ public class Plastic {
 
     }
 
-    public Plastic(Integer id, Integer category, Integer presentation, String name, Integer decompositionTime, Integer unitWeight, String created, String updated) {
+    public Plastic(Integer id, String category, String presentation, String name, Integer decompositionTime, Integer unitWeight, String created, String updated) {
         this.id = id;
         this.category = category;
         this.presentation = presentation;
@@ -34,11 +35,11 @@ public class Plastic {
         this.id = id;
     }
 
-    public Integer getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Integer category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -82,11 +83,11 @@ public class Plastic {
         this.updated = updated;
     }
 
-    public Integer getPresentation() {
+    public String getPresentation() {
         return presentation;
     }
 
-    public void setPresentation(Integer presentation) {
+    public void setPresentation(String presentation) {
         this.presentation = presentation;
     }
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".prueba.fragments.ListProductsFragment">
+    tools:context=".prueba.fragments.ListPlasticsFragment">
 
     <LinearLayout
 
@@ -34,7 +34,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.SearchView
-                android:id="@+id/txtBuscar"
+                android:id="@+id/searchViewPlastic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -57,7 +57,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaContactos"
+                android:id="@+id/recyclerViewPlastics"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".9" />
