@@ -2,6 +2,7 @@ package org.dailyplastic.idnp.prueba.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.splashscreen.SplashScreen;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public class FragmentControlActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_control);
         bottomNavigationView  = findViewById(R.id.bottom_navigation);
