@@ -3,16 +3,20 @@ package org.dailyplastic.idnp.prueba.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.fragments.ProfileFragment;
+import org.dailyplastic.idnp.prueba.fragments.RegisterConsumptionFragment;
 import org.dailyplastic.idnp.prueba.fragments.StatisticsFragment;
 import org.dailyplastic.idnp.prueba.fragments.MyPlasticConsumptionFragment;
 import org.dailyplastic.idnp.prueba.fragments.PlasticsFragment;
@@ -56,7 +60,7 @@ public class FragmentControlActivity extends AppCompatActivity {
                 }
                 return false;
             }
-        });
-
+        }
+        );
     }
 }
