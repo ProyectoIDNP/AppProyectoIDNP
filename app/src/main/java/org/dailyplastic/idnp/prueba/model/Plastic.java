@@ -4,19 +4,19 @@ public class Plastic {
 
     private Integer id;
     //Cambiar por las clases a category y presentation
-    private String category;
-    private String presentation;
+    private Category category;
+    private Presentation presentation;
     private String name;
     private Integer decompositionTime;
     private Integer unitWeight;
     private String created;
     private String updated;
 
-    public Plastic() {
 
+    public Plastic() {
     }
 
-    public Plastic(Integer id, String category, String presentation, String name, Integer decompositionTime, Integer unitWeight, String created, String updated) {
+    public Plastic(Integer id, Category category, Presentation presentation, String name, Integer decompositionTime, Integer unitWeight, String created, String updated) {
         this.id = id;
         this.category = category;
         this.presentation = presentation;
@@ -35,12 +35,20 @@ public class Plastic {
         this.id = id;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Presentation getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(Presentation presentation) {
+        this.presentation = presentation;
     }
 
     public String getName() {
@@ -81,14 +89,6 @@ public class Plastic {
 
     public void setUpdated(String updated) {
         this.updated = updated;
-    }
-
-    public String getPresentation() {
-        return presentation;
-    }
-
-    public void setPresentation(String presentation) {
-        this.presentation = presentation;
     }
 
     @Override

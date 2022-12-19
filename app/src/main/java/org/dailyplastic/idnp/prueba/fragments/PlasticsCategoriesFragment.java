@@ -16,6 +16,7 @@ import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.interfaces.CategoryService;
 import org.dailyplastic.idnp.prueba.model.Category;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class PlasticsCategoriesFragment extends Fragment {
 
         //Obtener los datos del api rest
         getAll();
+        //callCreate();
         categoriesGridView = plasticCategoriesFragment.findViewById(R.id.gridViewCategories);
 
         return plasticCategoriesFragment;
@@ -74,4 +76,47 @@ public class PlasticsCategoriesFragment extends Fragment {
             }
         });
     }
+
+
+    /*public void callCreate() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        categoryService = retrofit.create(CategoryService.class);
+        categoryService.create("Categoria QQQQ").enqueue(new Callback<Category>() {
+            @Override
+            public void onResponse(Call<Category> call, Response<Category> response) {
+                if(response.isSuccessful()) {
+                    System.out.println("EXITO");
+                }
+            }
+            @Override
+            public void onFailure(Call<Category> call, Throwable t) {
+                System.out.println("FALLO");
+            }
+        });
+    }*/
+
+    public void callCreate() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        categoryService = retrofit.create(CategoryService.class);
+        categoryService.create(new Category(null, "Categria LLL", "", "")).enqueue(new Callback<Category>() {
+            @Override
+            public void onResponse(Call<Category> call, Response<Category> response) {
+                if(response.isSuccessful()) {
+                    System.out.println("EXITO");
+                }
+            }
+            @Override
+            public void onFailure(Call<Category> call, Throwable t) {
+                System.out.println("FALLO");
+            }
+        });
+    }
+
+
 }
