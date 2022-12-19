@@ -84,12 +84,10 @@
                     <Spinner
                         android:id="@+id/spinnerFormPresentation"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="7dp"
                         android:spinnerMode="dropdown"
                         />
-
                 </LinearLayout>
             </LinearLayout>
 
@@ -112,9 +110,8 @@
                     <Spinner
                         android:id="@+id/spinnerCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="7dp"
                         android:spinnerMode="dropdown"/>
                 </LinearLayout>
                 <LinearLayout
@@ -124,7 +121,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Categoria"
+                        android:text="Unidades"
                         android:textSize="12dp"/>
                     <EditText
                         android:id="@+id/editCategory"
@@ -202,9 +199,8 @@
                     <Spinner
                         android:id="@+id/spinnerOrigin"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="7dp"
                         android:spinnerMode="dropdown"/>
                 </LinearLayout>
             </LinearLayout>
