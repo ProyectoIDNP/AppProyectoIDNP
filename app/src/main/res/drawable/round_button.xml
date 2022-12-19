@@ -5,6 +5,7 @@
             <item>
                 <shape android:shape="oval">
                     <solid android:color="@color/green_primary"/>
+
                 </shape>
             </item>
         </layer-list>
