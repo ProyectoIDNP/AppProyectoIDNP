@@ -9,22 +9,18 @@ public class Plastic {
     private String name;
     private Integer decompositionTime;
     private Integer unitWeight;
-    private String created;
-    private String updated;
-
 
     public Plastic() {
     }
 
-    public Plastic(Integer id, Category category, Presentation presentation, String name, Integer decompositionTime, Integer unitWeight, String created, String updated) {
+    public Plastic(Integer id, Category category, Presentation presentation, String name, Integer decompositionTime, Integer unitWeight) {
         this.id = id;
         this.category = category;
         this.presentation = presentation;
         this.name = name;
         this.decompositionTime = decompositionTime;
         this.unitWeight = unitWeight;
-        this.created = created;
-        this.updated = updated;
+
     }
 
     public Integer getId() {
@@ -75,22 +71,6 @@ public class Plastic {
         this.unitWeight = unitWeight;
     }
 
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
-    }
-
     @Override
     public String toString() {
         return "Plastic{" +
@@ -100,8 +80,6 @@ public class Plastic {
                 ", name='" + name + '\'' +
                 ", decompositionTime=" + decompositionTime +
                 ", unitWeight=" + unitWeight +
-                ", created='" + created + '\'' +
-                ", updated='" + updated + '\'' +
                 '}';
     }
 }

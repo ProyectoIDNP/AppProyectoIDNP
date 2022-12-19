@@ -40,7 +40,7 @@ public class PlasticRecyclerViewAdapter extends RecyclerView.Adapter<PlasticRecy
         holder.categoryPlastic.setText(plasticList.get(position).getCategory().getName());
         holder.presentationPlastic.setText(plasticList.get(position).getPresentation().getName());
         //cambiar por la fecha y hora en la que se agrego el plastico
-        holder.hourPlastic.setText(plasticList.get(position).getCreated());
+        holder.hourPlastic.setText("");
         holder.imagePlastic.setImageResource(R.drawable.ic_image_not_available);
     }
 
