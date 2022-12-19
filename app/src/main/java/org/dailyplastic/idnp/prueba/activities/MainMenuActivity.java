@@ -5,7 +5,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.fragments.LoginFragment;
 import org.dailyplastic.idnp.prueba.fragments.RegisterFragment;
+import androidx.core.splashscreen.SplashScreen;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -23,6 +23,7 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         setContentView(R.layout.activity_main_menu);
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,fragmentIniciarSesion).commit();
 

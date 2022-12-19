@@ -4,16 +4,19 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.ConsumptionRecyclerViewAdapter;
-import org.dailyplastic.idnp.prueba.adapters.PlasticRecyclerViewAdapter;
 import org.dailyplastic.idnp.prueba.model.Consumption;
 
 import java.util.ArrayList;
@@ -30,6 +33,17 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View listConsumptionsFragment = inflater.inflate(R.layout.fragment_my_plastic_consumption, container, false);
+
+        Button buttonRegister = listConsumptionsFragment.findViewById(R.id.buttonRegisterComsumption);
+
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                RegisterConsumptionFragment registerConsumptionFragment = new RegisterConsumptionFragment();
+                transaction.replace(R.id.container, registerConsumptionFragment).addToBackStack(null).commit();
+            }
+        });
 
         consumptionList = new ArrayList<>();
 
