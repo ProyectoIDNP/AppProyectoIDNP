@@ -41,19 +41,24 @@
                     android:id="@+id/searchViewConsumption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/search_view_background"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
-                    app:queryHint="Buscar" />
+                    app:queryHint="Buscar" >
+
+                </androidx.appcompat.widget.SearchView>
+
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buttonRegisterComsumption"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
+                    android:src="@drawable/ic_profile"
                     android:background="@drawable/round_button"
                     android:text="+"
                     android:textColor="#FFFFFF"

@@ -2,36 +2,36 @@ package org.dailyplastic.idnp.prueba.model;
 
 public class Consumption {
     private Integer id;
-    private String plastic;
     private String user;
-    private String origin;
+    private Plastic plastic;
+
+    private Origin origin;
     private String image;
     private String description;
     private Integer units;
-    private String created;
     private String updated;
+
 
     public Consumption() {
     }
 
-    public Consumption(Integer id, String plastic, String user, String origin, String image, String description, Integer units, String created, String updated) {
+    public Consumption(Integer id, String user, Plastic plastic, Origin origin, String image, String description, Integer units, String updated) {
         this.id = id;
-        this.plastic = plastic;
         this.user = user;
+        this.plastic = plastic;
         this.origin = origin;
         this.image = image;
         this.description = description;
         this.units = units;
-        this.created = created;
         this.updated = updated;
     }
 
-    public String getPlastic() {
-        return plastic;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPlastic(String plastic) {
-        this.plastic = plastic;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUser() {
@@ -42,11 +42,19 @@ public class Consumption {
         this.user = user;
     }
 
-    public String getOrigin() {
+    public Plastic getPlastic() {
+        return plastic;
+    }
+
+    public void setPlastic(Plastic plastic) {
+        this.plastic = plastic;
+    }
+
+    public Origin getOrigin() {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(Origin origin) {
         this.origin = origin;
     }
 
@@ -74,14 +82,6 @@ public class Consumption {
         this.units = units;
     }
 
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
     public String getUpdated() {
         return updated;
     }
@@ -90,25 +90,16 @@ public class Consumption {
         this.updated = updated;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "Consumption{" +
                 "id=" + id +
-                ", plastic='" + plastic + '\'' +
                 ", user='" + user + '\'' +
-                ", origin='" + origin + '\'' +
+                ", plastic=" + plastic +
+                ", origin=" + origin +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                 ", units=" + units +
-                ", created='" + created + '\'' +
                 ", updated='" + updated + '\'' +
                 '}';
     }

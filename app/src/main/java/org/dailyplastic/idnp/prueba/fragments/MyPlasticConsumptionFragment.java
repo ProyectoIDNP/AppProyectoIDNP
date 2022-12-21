@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,30 @@ import android.widget.Button;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.ConsumptionRecyclerViewAdapter;
+import org.dailyplastic.idnp.prueba.adapters.PlasticRecyclerViewAdapter;
+import org.dailyplastic.idnp.prueba.constants.Constants;
+import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
+import org.dailyplastic.idnp.prueba.interfaces.PlasticService;
+import org.dailyplastic.idnp.prueba.model.Category;
 import org.dailyplastic.idnp.prueba.model.Consumption;
+import org.dailyplastic.idnp.prueba.model.Origin;
+import org.dailyplastic.idnp.prueba.model.Plastic;
+import org.dailyplastic.idnp.prueba.model.Presentation;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import kotlin.jvm.internal.Ref;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class MyPlasticConsumptionFragment extends Fragment implements SearchView.OnQueryTextListener{
 
+    ConsumptionService consumptionService;
     SearchView searchViewConsumption;
     List<Consumption> consumptionList;
     RecyclerView recyclerViewConsumptions;
@@ -33,6 +50,9 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View listConsumptionsFragment = inflater.inflate(R.layout.fragment_my_plastic_consumption, container, false);
+
+        //Traer los plasticos
+        getAll();
 
         Button buttonRegister = listConsumptionsFragment.findViewById(R.id.buttonRegisterComsumption);
 
@@ -46,18 +66,7 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
         });
 
         consumptionList = new ArrayList<>();
-
-        consumptionList.add(new Consumption(1, "Plastic 1", "User 1", "Origin 1", "UrlImage1", "Description 1", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(2, "Plastic 2", "User 2", "Origin 2", "UrlImage2", "Description 2", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(3, "Plastic 3", "User 3", "Origin 3", "UrlImage3", "Description 3", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(4, "Plastic 4", "User 4", "Origin 4", "UrlImage4", "Description 4", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(5, "Plastic 5", "User 5", "Origin 5", "UrlImage5", "Description 5", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(6, "Plastic 6", "User 6", "Origin 6", "UrlImage6", "Description 6", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(7, "Plastic 7", "User 7", "Origin 7", "UrlImage7", "Description 7", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(8, "Plastic 8", "User 8", "Origin 8", "UrlImage8", "Description 8", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(9, "Plastic 9", "User 9", "Origin 9", "UrlImage9", "Description 9", 10, "05/12/2022", "05/12/2022"));
-        consumptionList.add(new Consumption(10, "Plastic 10", "User 10", "Origin 10", "UrlImage10", "Description 10", 10, "05/12/2022", "05/12/2022"));
-
+        
         searchViewConsumption = listConsumptionsFragment.findViewById(R.id.searchViewConsumption);
 
         recyclerViewConsumptions = listConsumptionsFragment.findViewById(R.id.recyclerViewConsumptions);
@@ -80,5 +89,34 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
     public boolean onQueryTextChange(String s) {
         consumptionRecyclerViewAdapter.plasticFilter(s);
         return false;
+    }
+
+    private void getAll() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        consumptionService = retrofit.create(ConsumptionService.class);
+        Call<List<Consumption>> call = consumptionService.getAll();
+        call.enqueue(new Callback<List<Consumption>>() {
+            @Override
+            public void onResponse(Call<List<Consumption>> call, Response<List<Consumption>> response) {
+                //si falla el response
+                if(!response.isSuccessful()) {
+                    Log.e("Response err: ", response.message());
+                    return;
+                }
+                consumptionList = response.body();
+                consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList);
+                recyclerViewConsumptions.setAdapter(consumptionRecyclerViewAdapter);
+
+                consumptionList.forEach(System.out::println);
+            }
+            @Override
+            public void onFailure(Call<List<Consumption>> call, Throwable t) {
+                Log.e("Throw err: ", t.getMessage());
+            }
+        });
     }
 }
