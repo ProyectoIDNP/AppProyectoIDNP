@@ -27,232 +27,265 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"
+        android:layout_height="505dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="40dp"
-        android:paddingHorizontal="30dp"
-        android:paddingVertical="20dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/rounded_bottom"
-        >
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="5dp">
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="173dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nombre de plastico"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <EditText
                         android:id="@+id/editPlasticName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="5dp"
                         android:ems="10"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:paddingVertical="5dp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="bottom"
                     android:orientation="vertical">
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/buttonSearchPlastics"
-                        android:paddingBottom="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/green_primary"
                         android:background="@drawable/oval_bottom"
+                        android:backgroundTint="@color/green_primary"
                         android:drawableBottom="@drawable/ic_baseline_search_24"
+                        android:paddingBottom="5dp"
                         android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="5dp">
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Forma de presentacion"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <Spinner
                         android:id="@+id/spinnerFormPresentation"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:background="@drawable/shape_edit_text"
-                        android:spinnerMode="dialog"
-                        />
+                        android:gravity="center"
+                        android:spinnerMode="dialog" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="5dp">
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="152dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
                     android:minWidth="180dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginRight="10dp">
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Categoria"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <Spinner
                         android:id="@+id/spinnerCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/shape_edit_text"
-                        android:spinnerMode="dialog"/>
+                        android:spinnerMode="dialog" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Unidades"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <EditText
                         android:id="@+id/editUnits"
                         android:layout_width="wrap_content"
-                        android:maxWidth="250dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="5dp"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxWidth="250dp"
+                        android:paddingVertical="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="5dp">
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:minWidth="180dp"
+                    android:layout_width="151dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginRight="10dp"
+                    android:minWidth="180dp"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fecha"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
 
                     <EditText
                         android:id="@+id/editDate"
-                        android:layout_width="183dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="5dp"
+                        android:ems="10"
                         android:inputType="date"
-                        android:maxWidth="250dp" />
+                        android:maxWidth="250dp"
+                        android:paddingVertical="5dp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hora"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <EditText
                         android:id="@+id/editTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="5dp"
                         android:ems="10"
-                        android:inputType="time" />
+                        android:inputType="time"
+                        android:paddingVertical="5dp" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="5dp">
+                android:layout_height="51dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Origen"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <Spinner
                         android:id="@+id/spinnerOrigin"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:background="@drawable/shape_edit_text"
-                        android:spinnerMode="dialog"/>
+                        android:gravity="center"
+                        android:spinnerMode="dialog" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginVertical="5dp"
+                android:orientation="horizontal"
                 android:paddingBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Descripcion"
-                        android:textSize="12dp"/>
+                        android:textSize="12dp" />
+
                     <EditText
                         android:id="@+id/editDescription"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:background="@drawable/shape_edit_text"
-                        android:paddingVertical="5dp"
                         android:ems="10"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:paddingVertical="5dp" />
                 </LinearLayout>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonRegisterComsumption"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/green_primary"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded_bottom"
+                android:backgroundTint="@color/green_primary"
+                android:gravity="center"
                 android:text="Registrar"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="12dp" />
 
         </LinearLayout>
     </LinearLayout>
