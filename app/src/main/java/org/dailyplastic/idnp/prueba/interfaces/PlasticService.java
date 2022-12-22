@@ -10,10 +10,14 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface PlasticService {
     @GET("plastics/")
     Call<List<Plastic>> getAll();
+
+    @GET("plastics/{id}")
+    Call<Plastic> getOne(@Path("id") Integer id);
 
     @POST("plastics/")
     @FormUrlEncoded

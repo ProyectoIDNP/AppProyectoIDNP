@@ -54,7 +54,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textViewPlasticDetailName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -158,7 +158,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/textViewPlasticDetailWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -167,10 +167,23 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textViewPlasticDetailWeight"
+
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginBottom="30dp"
                 android:background="#666666" />
+
+            <Button
+                android:id="@+id/buttonPlasticDetailBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/rounded_bottom"
+                android:backgroundTint="@color/green_primary"
+                android:gravity="center"
+                android:text="Regresar"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

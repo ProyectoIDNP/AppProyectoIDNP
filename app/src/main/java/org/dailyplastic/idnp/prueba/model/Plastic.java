@@ -7,8 +7,8 @@ public class Plastic {
     private Category category;
     private Presentation presentation;
     private String name;
-    private Integer decompositionTime;
-    private Integer unitWeight;
+    private Integer decomposition_time;
+    private Integer unit_weight;
 
     public Plastic() {
     }
@@ -18,8 +18,8 @@ public class Plastic {
         this.category = category;
         this.presentation = presentation;
         this.name = name;
-        this.decompositionTime = decompositionTime;
-        this.unitWeight = unitWeight;
+        this.decomposition_time = decompositionTime;
+        this.unit_weight = unitWeight;
 
     }
 
@@ -56,19 +56,19 @@ public class Plastic {
     }
 
     public Integer getDecompositionTime() {
-        return decompositionTime;
+        return decomposition_time;
     }
 
-    public void setDecompositionTime(Integer decompositionTime) {
-        this.decompositionTime = decompositionTime;
+    public void setDecompositionTime(Integer decomposition_time) {
+        this.decomposition_time = decomposition_time;
     }
 
     public Integer getUnitWeight() {
-        return unitWeight;
+        return unit_weight;
     }
 
-    public void setUnitWeight(Integer unitWeight) {
-        this.unitWeight = unitWeight;
+    public void setUnitWeight(Integer unit_weight) {
+        this.unit_weight = unit_weight;
     }
 
     @Override
@@ -78,8 +78,8 @@ public class Plastic {
                 ", category=" + category +
                 ", presentation=" + presentation +
                 ", name='" + name + '\'' +
-                ", decompositionTime=" + decompositionTime +
-                ", unitWeight=" + unitWeight +
+                ", decompositionTime=" + decomposition_time +
+                ", unitWeight=" + unit_weight +
                 '}';
     }
 }
