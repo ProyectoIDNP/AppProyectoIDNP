@@ -2,10 +2,14 @@ package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +17,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.adapters.ConsumptionRecyclerViewAdapter;
+import org.dailyplastic.idnp.prueba.constants.Constants;
+import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
 import org.dailyplastic.idnp.prueba.model.Category;
 import org.dailyplastic.idnp.prueba.model.Consumption;
 import org.dailyplastic.idnp.prueba.model.Origin;
 import org.dailyplastic.idnp.prueba.model.Presentation;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisterConsumptionFragment extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class EditConsumptionFragment extends Fragment {
 
     List<Category> listCategories = new ArrayList<>();
     List<Presentation> listPresentations = new ArrayList<>();
@@ -42,18 +56,26 @@ public class RegisterConsumptionFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View registerConsumptionFragment = inflater.inflate(R.layout.fragment_register_consumption, container, false);
 
-        buttonRegister = registerConsumptionFragment.findViewById(R.id.buttonRegisterComsumption);
-        namePlastic = registerConsumptionFragment.findViewById(R.id.editPlasticName);
-        units = registerConsumptionFragment.findViewById(R.id.editUnits);
-        hour = registerConsumptionFragment.findViewById(R.id.editTime);
-        date = registerConsumptionFragment.findViewById(R.id.editDate);
-        description = registerConsumptionFragment.findViewById(R.id.editDescription);
-        spinnerCategories = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerCategory);
-        spinnerPresentation = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerFormPresentation);
-        spinnerOrigin = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerOrigin);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            consumption = bundle.getParcelable("Consumption");
+            Log.i("Comsumption", consumption.toString());
+        }
 
+        View editConsumptionFragment = inflater.inflate(R.layout.fragment_register_consumption, container, false);
+
+        buttonRegister = editConsumptionFragment.findViewById(R.id.buttonRegisterComsumption);
+        namePlastic = editConsumptionFragment.findViewById(R.id.editPlasticName);
+        units = editConsumptionFragment.findViewById(R.id.editUnits);
+        hour = editConsumptionFragment.findViewById(R.id.editTime);
+        date = editConsumptionFragment.findViewById(R.id.editDate);
+        description = editConsumptionFragment.findViewById(R.id.editDescription);
+        spinnerCategories = (Spinner) editConsumptionFragment.findViewById(R.id.spinnerCategory);
+        spinnerPresentation = (Spinner) editConsumptionFragment.findViewById(R.id.spinnerFormPresentation);
+        spinnerOrigin = (Spinner) editConsumptionFragment.findViewById(R.id.spinnerOrigin);
+
+        setValues();
         setValuesSpinners();
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +89,24 @@ public class RegisterConsumptionFragment extends Fragment {
                 Presentation valuePresentation = (Presentation) spinnerPresentation.getSelectedItem();
                 Category valueCategory = (Category) spinnerCategories.getSelectedItem();
                 Origin valueOrigin = (Origin) spinnerOrigin.getSelectedItem();
+                Log.i("DATOS", valueCategory + valueDate + valueDescription + valueCategory + valueOrigin);
                 getParentFragmentManager().popBackStack();
             }
         });
-        return registerConsumptionFragment;
+        return editConsumptionFragment;
+    }
+
+    public void setValues() {
+        String strDatewithTime = consumption.getUpdated();
+        ZonedDateTime zonedDateTime = ZonedDateTime.parse(strDatewithTime);
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+        Log.i("HOUR:", zonedDateTime.format(timeFormat));
+        namePlastic.setText(consumption.getPlastic().getName());
+        units.setText(String.valueOf(consumption.getUnits()));
+        hour.setText(zonedDateTime.format(timeFormat));
+        date.setText(zonedDateTime.format(dateFormat));
+        description.setText(consumption.getDescription());
     }
 
     public void setValuesSpinners() {

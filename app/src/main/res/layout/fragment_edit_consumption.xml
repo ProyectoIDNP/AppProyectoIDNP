@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".prueba.fragments.RegisterConsumptionFragment">
+    tools:context=".prueba.fragments.EditConsumptionFragment">
 
 
     <View
@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar mi consumo"
+            android:text="Mi consumo"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="20dp"/>
@@ -43,7 +43,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
                 android:orientation="horizontal">
@@ -74,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="bottom"
+                    android:maxWidth="50dp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -283,10 +284,11 @@
                 android:background="@drawable/rounded_bottom"
                 android:backgroundTint="@color/green_primary"
                 android:gravity="center"
-                android:text="Registrar"
+                android:text="Guardar"
                 android:textColor="@color/white"
                 android:textSize="12dp" />
 
         </LinearLayout>
     </LinearLayout>
+
 </FrameLayout>

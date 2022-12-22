@@ -1,6 +1,9 @@
 package org.dailyplastic.idnp.prueba.model;
 
-public class Consumption {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Consumption implements Parcelable {
     private Integer id;
     private String user;
     private Plastic plastic;
@@ -25,6 +28,35 @@ public class Consumption {
         this.units = units;
         this.updated = updated;
     }
+
+    protected Consumption(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        user = in.readString();
+        image = in.readString();
+        description = in.readString();
+        if (in.readByte() == 0) {
+            units = null;
+        } else {
+            units = in.readInt();
+        }
+        updated = in.readString();
+    }
+
+    public static final Creator<Consumption> CREATOR = new Creator<Consumption>() {
+        @Override
+        public Consumption createFromParcel(Parcel in) {
+            return new Consumption(in);
+        }
+
+        @Override
+        public Consumption[] newArray(int size) {
+            return new Consumption[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -102,5 +134,30 @@ public class Consumption {
                 ", units=" + units +
                 ", updated='" + updated + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(id);
+        }
+        parcel.writeString(user);
+        parcel.writeString(image);
+        parcel.writeString(description);
+        if (units == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(units);
+        }
+        parcel.writeString(updated);
     }
 }

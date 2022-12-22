@@ -1,5 +1,11 @@
 package org.dailyplastic.idnp.prueba.adapters;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,9 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.fragments.MyPlasticConsumptionFragment;
+import org.dailyplastic.idnp.prueba.fragments.RegisterConsumptionFragment;
 import org.dailyplastic.idnp.prueba.model.Consumption;
 import org.dailyplastic.idnp.prueba.model.Plastic;
 
@@ -22,9 +32,11 @@ import java.util.stream.Collectors;
 public class ConsumptionRecyclerViewAdapter extends RecyclerView.Adapter<ConsumptionRecyclerViewAdapter.ConsumptionViewHolder> {
     List<Consumption> consumptionList;
     List<Consumption> originalListConsumption;
+    private final OnItemClickListener listener;
 
-    public ConsumptionRecyclerViewAdapter(List<Consumption> consumptionList) {
+    public ConsumptionRecyclerViewAdapter(List<Consumption> consumptionList, OnItemClickListener listener) {
         this.consumptionList = consumptionList;
+        this.listener = listener;
         originalListConsumption = new ArrayList<>();
         originalListConsumption.addAll(consumptionList);
     }
@@ -48,6 +60,7 @@ public class ConsumptionRecyclerViewAdapter extends RecyclerView.Adapter<Consump
         holder.hourConsumption.setText(zonedDateTime.format(FORMATTER));
         //cambiar la imagen utilizando picasso
         holder.imageConsumption.setImageResource(R.drawable.ic_image_not_available);
+        holder.bind(consumptionList.get(position), listener);
     }
 
     @Override
@@ -78,7 +91,11 @@ public class ConsumptionRecyclerViewAdapter extends RecyclerView.Adapter<Consump
         notifyDataSetChanged();
     }
 
-    public class ConsumptionViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        void onItemClick(Consumption item);
+    }
+
+    public static class ConsumptionViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleConsumption;
         TextView originConsumption;
@@ -94,13 +111,17 @@ public class ConsumptionRecyclerViewAdapter extends RecyclerView.Adapter<Consump
             descriptionConsumption = itemView.findViewById(R.id.recyclerItemSubtitle2);
             imageConsumption = itemView.findViewById(R.id.recyclerItemImageView);
             hourConsumption = itemView.findViewById(R.id.recyclerItemHour);
+        }
 
+        public void bind(final Consumption item, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    System.out.println("*************** CONSUMPTION DETAIL***************");
+                    listener.onItemClick(item);
                 }
             });
         }
     }
+
+
 }

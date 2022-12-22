@@ -10,11 +10,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.ConsumptionRecyclerViewAdapter;
@@ -72,11 +74,14 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
         recyclerViewConsumptions = listConsumptionsFragment.findViewById(R.id.recyclerViewConsumptions);
         recyclerViewConsumptions.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList);
+        consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList, new ConsumptionRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Consumption item) {
+                onItemConsumptionClick(item);
+            }
+        });
         recyclerViewConsumptions.setAdapter(consumptionRecyclerViewAdapter);
-
         searchViewConsumption.setOnQueryTextListener(this);
-
         return listConsumptionsFragment;
     }
 
@@ -108,7 +113,12 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
                     return;
                 }
                 consumptionList = response.body();
-                consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList);
+                consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList, new ConsumptionRecyclerViewAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(Consumption item) {
+                        onItemConsumptionClick(item);
+                    }
+                });
                 recyclerViewConsumptions.setAdapter(consumptionRecyclerViewAdapter);
 
                 consumptionList.forEach(System.out::println);
@@ -118,5 +128,14 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
                 Log.e("Throw err: ", t.getMessage());
             }
         });
+    }
+
+    public void onItemConsumptionClick(Consumption item){
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("Consumption", (Parcelable) item);
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        EditConsumptionFragment editConsumptionFragment = new EditConsumptionFragment();
+        editConsumptionFragment.setArguments(bundle);
+        transaction.replace(R.id.container, editConsumptionFragment).addToBackStack(null).commit();
     }
 }
