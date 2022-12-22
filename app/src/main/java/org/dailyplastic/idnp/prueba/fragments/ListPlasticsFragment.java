@@ -50,7 +50,7 @@ public class ListPlasticsFragment extends Fragment implements SearchView.OnQuery
         getAll();
 
         //Test
-        callCreate();
+        //callCreate();
 
         searchViewPlastic = listPlasticsFragment.findViewById(R.id.searchViewPlastic);
         recyclerViewPlastics = listPlasticsFragment.findViewById(R.id.recyclerViewPlastics);
@@ -88,7 +88,7 @@ public class ListPlasticsFragment extends Fragment implements SearchView.OnQuery
                     return;
                 }
                 plasticList = response.body();
-                plasticRecyclerViewAdapter = new PlasticRecyclerViewAdapter(plasticList);
+                plasticRecyclerViewAdapter = new PlasticRecyclerViewAdapter(plasticList, getParentFragmentManager());
                 recyclerViewPlastics.setAdapter(plasticRecyclerViewAdapter);
 
                 plasticList.forEach(System.out::println);

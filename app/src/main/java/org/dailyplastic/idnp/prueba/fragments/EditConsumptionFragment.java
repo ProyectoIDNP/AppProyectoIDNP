@@ -63,7 +63,7 @@ public class EditConsumptionFragment extends Fragment {
             Log.i("Comsumption", consumption.toString());
         }
 
-        View editConsumptionFragment = inflater.inflate(R.layout.fragment_register_consumption, container, false);
+        View editConsumptionFragment = inflater.inflate(R.layout.fragment_edit_consumption, container, false);
 
         buttonRegister = editConsumptionFragment.findViewById(R.id.buttonRegisterComsumption);
         namePlastic = editConsumptionFragment.findViewById(R.id.editPlasticName);
@@ -101,7 +101,6 @@ public class EditConsumptionFragment extends Fragment {
         ZonedDateTime zonedDateTime = ZonedDateTime.parse(strDatewithTime);
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
-        Log.i("HOUR:", zonedDateTime.format(timeFormat));
         namePlastic.setText(consumption.getPlastic().getName());
         units.setText(String.valueOf(consumption.getUnits()));
         hour.setText(zonedDateTime.format(timeFormat));

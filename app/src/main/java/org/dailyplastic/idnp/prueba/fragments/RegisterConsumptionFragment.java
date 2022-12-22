@@ -1,11 +1,10 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.model.Category;
@@ -40,19 +38,20 @@ public class RegisterConsumptionFragment extends Fragment {
     Spinner spinnerPresentation;
     Spinner spinnerOrigin;
 
+    @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View registerConsumptionFragment = inflater.inflate(R.layout.fragment_register_consumption, container, false);
 
         buttonRegister = registerConsumptionFragment.findViewById(R.id.buttonRegisterComsumption);
-        namePlastic = registerConsumptionFragment.findViewById(R.id.editPlasticName);
-        units = registerConsumptionFragment.findViewById(R.id.editUnits);
-        hour = registerConsumptionFragment.findViewById(R.id.editTime);
-        date = registerConsumptionFragment.findViewById(R.id.editDate);
-        description = registerConsumptionFragment.findViewById(R.id.editDescription);
-        spinnerCategories = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerCategory);
-        spinnerPresentation = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerFormPresentation);
-        spinnerOrigin = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerOrigin);
+        namePlastic = registerConsumptionFragment.findViewById(R.id.editTextConsumptionPlasticName);
+        units = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumptionDescription);
+        hour = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumptionHour);
+        date = registerConsumptionFragment.findViewById(R.id.editTextConsumptionDate);
+        description = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumptionDescription);
+        spinnerCategories = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionCategoryRegister);
+        spinnerPresentation = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionPresentationRegister);
+        spinnerOrigin = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionOriginRegister);
 
         setValuesSpinners();
 
