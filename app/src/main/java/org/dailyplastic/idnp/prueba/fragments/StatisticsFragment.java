@@ -37,6 +37,7 @@ public class StatisticsFragment extends Fragment {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         PieChartCategoriesWeightFragment pieChartCategoriesWeightFragment = new PieChartCategoriesWeightFragment();
 
+        Button buttonRegisterConsumption =  statisticsFragment.findViewById(R.id.buttonRegisterConsumption);
         Button buttonCategories = statisticsFragment.findViewById(R.id.buttonCategories);
         Button buttonPresentations = statisticsFragment.findViewById(R.id.buttonPresentation);
         radioGroupStatisticsBy = statisticsFragment.findViewById(R.id.radioGroupStatistics);
@@ -50,6 +51,15 @@ public class StatisticsFragment extends Fragment {
         buttonCategories.setBackground(buttonShape);
         buttonPresentations.setBackgroundResource(0);
         radioGroupStatisticsBy.check(R.id.radioButtonWeight);
+
+        buttonRegisterConsumption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                RegisterConsumptionFragment registerConsumptionFragment = new RegisterConsumptionFragment();
+                transaction.replace(R.id.container, registerConsumptionFragment).addToBackStack(null).commit();
+            }
+        });
 
         radioGroupStatisticsBy.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
