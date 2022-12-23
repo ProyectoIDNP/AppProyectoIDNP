@@ -1,14 +1,17 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import android.app.AlertDialog;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +19,8 @@ import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.dailyplastic.idnp.R;
+import org.dailyplastic.idnp.prueba.activities.FragmentControlActivity;
+import org.dailyplastic.idnp.prueba.activities.MainMenuActivity;
 
 public class PlasticsFragment extends Fragment {
     ListPlasticsFragment listPlasticsFragment = new ListPlasticsFragment();
@@ -76,7 +81,6 @@ public class PlasticsFragment extends Fragment {
                 getParentFragmentManager().beginTransaction().replace(R.id.container, listPlasticsFragment).commit();
             }
         });
-
         return plasticsFragment;
     }
 }

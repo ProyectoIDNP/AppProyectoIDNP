@@ -2,7 +2,9 @@ package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,6 +64,7 @@ public class PlasticsCategoriesFragment extends Fragment {
                 }
                 categories = response.body();
                 //Colocacion de los datos en el gridView
+
                 CategoryGridViewAdapter adapter = new CategoryGridViewAdapter(getActivity(), categories);
                 categoriesGridView.setAdapter(adapter);
 
