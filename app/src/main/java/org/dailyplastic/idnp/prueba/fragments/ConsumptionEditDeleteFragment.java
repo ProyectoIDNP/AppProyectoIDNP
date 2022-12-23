@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.constants.Constants;
+import org.dailyplastic.idnp.prueba.dto.ConsumptionDto;
 import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
 import org.dailyplastic.idnp.prueba.model.Consumption;
 
@@ -89,6 +91,7 @@ public class ConsumptionEditDeleteFragment extends Fragment{
         consumptionDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 getParentFragmentManager().beginTransaction().replace(R.id.container, myPlasticConsumptionFragment).commit();
             }
         });
@@ -122,6 +125,32 @@ public class ConsumptionEditDeleteFragment extends Fragment{
                 consumptionDescription.setText(consumption.getDescription());
                 consumptionUnits.setText(consumption.getUnits().toString());
                 consumptionTotalWeight.setText(consumption.getTotalUnitsWeight().toString() + " gr.");
+
+            }
+
+            @Override
+            public void onFailure(Call<Consumption> call, Throwable t) {
+                Log.e("Throw err: ", t.getMessage());
+            }
+        });
+    }
+
+    public void delete(Integer idConsumption) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        consumptionService = retrofit.create(ConsumptionService.class);
+        Call<Consumption> call = consumptionService.delete(idConsumption);
+        call.enqueue(new Callback<Consumption>() {
+            @Override
+            public void onResponse(Call<Consumption> call, Response<Consumption> response) {
+                if(!response.isSuccessful()) {
+                    Log.e("Response err: ", response.message());
+                    return;
+                }
+                consumption = response.body();
+
 
             }
 
