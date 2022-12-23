@@ -1,5 +1,7 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,9 +18,7 @@ import android.widget.Toast;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.constants.Constants;
-import org.dailyplastic.idnp.prueba.dto.ConsumptionDto;
-import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
-import org.dailyplastic.idnp.prueba.interfaces.RegisterService;
+import org.dailyplastic.idnp.prueba.interfaces.UserService;
 import org.dailyplastic.idnp.prueba.model.User;
 
 import retrofit2.Call;
@@ -35,7 +35,7 @@ public class RegisterFragment extends Fragment {
     CheckBox conditionsRegister;
     Button buttonRegister;
 
-    RegisterService registerService;
+    UserService registerService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,8 +56,11 @@ public class RegisterFragment extends Fragment {
                 userSend.setPassword(passwordRegister.getText().toString());
 
                 if(conditionsRegister.isChecked()) {
-                    create(userSend);
-                    //returnToLoginFragment();
+                    createUser(userSend);
+                    usernameRegister.setText("");
+                    emailRegister.setText("");
+                    passwordRegister.setText("");
+                    conditionsRegister.setChecked(false);
                 } else {
                     Toast.makeText(getActivity(), "Acepte las condiciones para continuar", Toast.LENGTH_LONG).show();
                 }
@@ -71,23 +74,45 @@ public class RegisterFragment extends Fragment {
         return registerFragmentView;
     }
 
-    public void create(User user) {
+    public void createUser(User user) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        registerService = retrofit.create(RegisterService.class);
-        Call<User> call = registerService.create(user);
+        registerService = retrofit.create(UserService.class);
+        Call<User> call = registerService.signIn(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(!response.isSuccessful()) {
                     Log.e("Response err: ", response.message());
+                    Toast.makeText(getContext(), "Registro Incorrecto", Toast.LENGTH_LONG).show();
                     return;
                 }
                 User userReceived = response.body();
-                Toast.makeText(getContext(), "Se registro con éxito", Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder alertRegister = new AlertDialog.Builder(getContext());
+                alertRegister.setMessage(" Registro exitoso,  "+userReceived.getUsername().toString())
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int witch) {
+                                dialogInterface.cancel();
+                            }
+                        });
+
+                AlertDialog tituloMain = alertRegister.create();
+                tituloMain.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        tituloMain.getWindow().setBackgroundDrawableResource(R.color.green_primary);
+                        tituloMain.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(android.R.color.white));
+                    }
+                });
+                tituloMain.setTitle("Daily Plastic");
+                tituloMain.show();
+                //Toast.makeText(getContext(), "Se registro con éxito", Toast.LENGTH_LONG).show();
                 getParentFragmentManager().popBackStack();
 
             }
@@ -97,13 +122,5 @@ public class RegisterFragment extends Fragment {
                 Log.e("Throw err: ", t.getMessage());
             }
         });
-    }
-
-    public void returnToLoginFragment() {
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        LoginFragment fragment1 = new LoginFragment();
-        transaction.replace(R.id.mainFrame, fragment1);
-        transaction.commit();
-
     }
 }
