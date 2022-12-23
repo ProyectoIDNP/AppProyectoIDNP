@@ -12,10 +12,13 @@ public class PieChart extends View {
 
     private static final int[] DEFAULT_COLORS = new int[]{
             Color.parseColor("#001F10"),
-            Color.parseColor("#002F18"),
-            Color.parseColor("#003E20"),
-            Color.parseColor("#3F7457"),
-            Color.parseColor("#7EA58F"),
+            Color.parseColor("#17351B"),
+            Color.parseColor("#304B2E"),
+            Color.parseColor("#506045"),
+            Color.parseColor("#70755C"),
+            Color.parseColor("#8A8573"),
+            Color.parseColor("#9E918A"),
+            Color.parseColor("#B2A1A1"),
             Color.parseColor("#BDD3C6")
     };
     private static int[] values;

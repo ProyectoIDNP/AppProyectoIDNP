@@ -1,14 +1,15 @@
 package org.dailyplastic.idnp.prueba.dto;
 
 public class ReporteDto {
-    String PS_Poliestireno;
+    String label;
+    int value;
 
-    public String getPS_Poliestireno() {
-        return PS_Poliestireno;
+    public String getLabel() {
+        return label;
     }
 
-    public void setPS_Poliestireno(String PS_Poliestireno) {
-        this.PS_Poliestireno = PS_Poliestireno;
+    public int getValue() {
+        return value;
     }
 }
 
