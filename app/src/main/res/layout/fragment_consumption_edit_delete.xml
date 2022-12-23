@@ -313,13 +313,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/imageViewConsumptionImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="top|center"
                     android:elevation="5dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background"
-                    app:srcCompat="@drawable/ic_image_not_available"/>
+                    app:srcCompat="@drawable/ic_image_not_available" />
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

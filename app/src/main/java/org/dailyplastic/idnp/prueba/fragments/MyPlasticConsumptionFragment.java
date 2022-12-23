@@ -25,9 +25,12 @@ import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.dto.UserDto;
 import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
 import org.dailyplastic.idnp.prueba.model.Consumption;
+import org.dailyplastic.idnp.prueba.model.Plastic;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -112,7 +115,10 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                consumptionList = response.body();
+                consumptionList = response.body()
+                        .stream()
+                        .sorted(Comparator.comparing(c -> c.getPlastic().getName()))
+                        .collect(Collectors.toList());;
                 consumptionRecyclerViewAdapter = new ConsumptionRecyclerViewAdapter(consumptionList,getParentFragmentManager());
                 recyclerViewConsumptions.setAdapter(consumptionRecyclerViewAdapter);
 

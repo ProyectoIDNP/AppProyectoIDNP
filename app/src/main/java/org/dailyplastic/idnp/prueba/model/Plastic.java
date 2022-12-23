@@ -73,13 +73,6 @@ public class Plastic {
 
     @Override
     public String toString() {
-        return "Plastic{" +
-                "id=" + id +
-                ", category=" + category +
-                ", presentation=" + presentation +
-                ", name='" + name + '\'' +
-                ", decompositionTime=" + decomposition_time +
-                ", unitWeight=" + unit_weight +
-                '}';
+        return name;
     }
 }

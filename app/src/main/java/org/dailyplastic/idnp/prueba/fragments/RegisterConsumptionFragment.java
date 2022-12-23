@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +39,10 @@ import org.dailyplastic.idnp.prueba.model.Plastic;
 import org.dailyplastic.idnp.prueba.model.Presentation;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,20 +55,22 @@ public class RegisterConsumptionFragment extends Fragment {
     List<Category> listCategories;
     List<Presentation> listPresentations;
     List<Origin> listOrigins;
+    List<Plastic> listPlastics;
 
     ConsumptionService consumptionService;
-    CategoryService categoryService;
     OriginService originService;
-    PresentationService presentationService;
+    PlasticService plasticService;
 
     Button buttonRegister;
-    EditText namePlastic;
+
     EditText units;
     EditText hour;
     EditText date;
     EditText description;
-    Spinner spinnerCategories;
-    Spinner spinnerPresentation;
+    EditText presentation;
+    EditText category;
+    EditText origin;
+    Spinner spinnerPlastic;
     Spinner spinnerOrigin;
 
     MyPlasticConsumptionFragment myPlasticConsumptionFragment = new MyPlasticConsumptionFragment();
@@ -74,36 +80,44 @@ public class RegisterConsumptionFragment extends Fragment {
         View registerConsumptionFragment = inflater.inflate(R.layout.fragment_register_consumption, container, false);
 
         buttonRegister = registerConsumptionFragment.findViewById(R.id.buttonRegisterComsumption);
-        namePlastic = registerConsumptionFragment.findViewById(R.id.editTextConsumptionPlasticName);
         units = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumption);
         hour = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumptionHour);
         date = registerConsumptionFragment.findViewById(R.id.editTextConsumptionDate);
         description = registerConsumptionFragment.findViewById(R.id.editTextUnitsConsumptionDescription);
-        spinnerCategories = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionCategoryRegister);
-        spinnerPresentation = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionPresentationRegister);
-        spinnerOrigin = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionOriginRegister);
-        // Se crean los objetos de prueba
-        /*Category category = new Category(1, "Categoria", "21/12/2022", "21/12/2022");
-        Category category2 = new Category(1, "Categoria2", "21/12/2022", "21/12/2022");
-        Origin origin = new Origin(1, "Origen");
-        Presentation presentation = new Presentation(1, "Presentacion", "21/12/2022", "21/12/2022");
 
-        listCategories.add(category);
-        listCategories.add(category2);
-        listOrigins.add(origin);
-        listPresentations.add(presentation);*/
+        presentation = registerConsumptionFragment.findViewById(R.id.editTextConsumptionPlasticPresentation);
+        category = registerConsumptionFragment.findViewById(R.id.editTextConsumptionPlasticCategory);
+        presentation.setKeyListener(null);
+        category.setKeyListener(null);
+
+        spinnerPlastic = registerConsumptionFragment.findViewById(R.id.spinnerConsumptionPlasticRegister);
+        spinnerOrigin = (Spinner) registerConsumptionFragment.findViewById(R.id.spinnerConsumptionOriginRegister);
+
+        spinnerPlastic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+            Plastic valuePlasticTemp = (Plastic) spinnerPlastic.getSelectedItem();
+            presentation.setText(valuePlasticTemp.getPresentation().getName());
+            category.setText(valuePlasticTemp.getCategory().getName());
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parentView) {
+                        // your code here
+        }
+
+        });
+
 
         //Aqui reemplazar por las consultas
+        getAllPlastics();
         getAllOrigins();
-        getAllCategories();
-        getAllPresentations();
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Presentation valuePresentation = (Presentation) spinnerPresentation.getSelectedItem();
-                Category valueCategory = (Category) spinnerCategories.getSelectedItem();
+                Plastic valuePlastic = (Plastic) spinnerPlastic.getSelectedItem();
                 Origin valueOrigin = (Origin) spinnerOrigin.getSelectedItem();
 
                 //Recuperacion del id del usuario logueado
@@ -116,8 +130,8 @@ public class RegisterConsumptionFragment extends Fragment {
                 ConsumptionDto consumptionDto = new ConsumptionDto();
 
                 //Cambiar el id de plastico por la busqueda
-                consumptionDto.setPlastic(2);
                 consumptionDto.setUser(userObj.getUser().getId());
+                consumptionDto.setPlastic(valuePlastic.getId());
                 consumptionDto.setOrigin(valueOrigin.getId());
                 consumptionDto.setImage(null);
                 consumptionDto.setDescription(description.getText().toString());
@@ -190,59 +204,34 @@ public class RegisterConsumptionFragment extends Fragment {
         });
     }
 
-    private void getAllCategories() {
+    private void getAllPlastics() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        categoryService = retrofit.create(CategoryService.class);
-        Call<List<Category>> call = categoryService.getAll();
-        call.enqueue(new Callback<List<Category>>() {
+        plasticService = retrofit.create(PlasticService.class);
+        Call<List<Plastic>> call = plasticService.getAll();
+        call.enqueue(new Callback<List<Plastic>>() {
             @Override
-            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+            public void onResponse(Call<List<Plastic>> call, Response<List<Plastic>> response) {
                 //si falla el response
                 if(!response.isSuccessful()) {
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                listCategories = response.body();
+                listPlastics = response.body()
+                        .stream()
+                        .sorted(Comparator.comparing(Plastic::getName))
+                        .collect(Collectors.toList());
+                //Se ordena la lista
 
-                ArrayAdapter<Category> categoriesAdapter = new ArrayAdapter<Category>(getActivity().getApplicationContext(), R.layout.style_spinner, listCategories);
-                spinnerCategories.setAdapter(categoriesAdapter);
+                ArrayAdapter<Plastic> originsAdapter = new ArrayAdapter<Plastic>(getActivity().getApplicationContext(), R.layout.style_spinner, listPlastics);
+                spinnerPlastic.setAdapter(originsAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<Category>> call, Throwable t) {
-                Log.e("Throw err: ", t.getMessage());
-            }
-        });
-    }
-
-    private void getAllPresentations() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        presentationService = retrofit.create(PresentationService.class);
-        Call<List<Presentation>> call = presentationService.getAll();
-        call.enqueue(new Callback<List<Presentation>>() {
-            @Override
-            public void onResponse(Call<List<Presentation>> call, Response<List<Presentation>> response) {
-                //si falla el response
-                if(!response.isSuccessful()) {
-                    Log.e("Response err: ", response.message());
-                    return;
-                }
-                listPresentations = response.body();
-
-                ArrayAdapter<Presentation> presentationsAdapter = new ArrayAdapter<Presentation>(getActivity().getApplicationContext(), R.layout.style_spinner, listPresentations);
-                spinnerPresentation.setAdapter(presentationsAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<List<Presentation>> call, Throwable t) {
+            public void onFailure(Call<List<Plastic>> call, Throwable t) {
                 Log.e("Throw err: ", t.getMessage());
             }
         });

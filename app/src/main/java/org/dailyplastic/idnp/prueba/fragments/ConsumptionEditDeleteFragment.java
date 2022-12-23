@@ -2,7 +2,6 @@ package org.dailyplastic.idnp.prueba.fragments;
 
 import android.os.Bundle;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -10,14 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
-import org.dailyplastic.idnp.prueba.interfaces.PlasticService;
 import org.dailyplastic.idnp.prueba.model.Consumption;
-import org.dailyplastic.idnp.prueba.model.Plastic;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +33,7 @@ public class ConsumptionEditDeleteFragment extends Fragment{
     TextView consumptionUnits;
     TextView consumptionTotalWeight;
     Button consumptionEdit, consumptionDelete;
+    ImageView consumptionImage;
 
     ConsumptionService consumptionService;
 
@@ -62,9 +61,13 @@ public class ConsumptionEditDeleteFragment extends Fragment{
         consumptionDescription = consumptionDetailFragment.findViewById(R.id.textViewConsumptionDescription);
         consumptionUnits = consumptionDetailFragment.findViewById(R.id.textViewConsumptionUnits);
         consumptionTotalWeight = consumptionDetailFragment.findViewById(R.id.textViewConsumptionWeight);
+        consumptionImage = consumptionDetailFragment.findViewById(R.id.imageViewConsumptionImage);
 
         consumptionEdit = consumptionDetailFragment.findViewById(R.id.ButtonEdit);
-        consumptionDelete = consumptionDetailFragment.findViewById(R.id.ButtonDelete);;
+        consumptionDelete = consumptionDetailFragment.findViewById(R.id.ButtonDelete);
+
+
+        consumptionImage.setImageResource(R.drawable.ic_image_not_available);
 
         consumptionEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +111,7 @@ public class ConsumptionEditDeleteFragment extends Fragment{
                 consumptionOrigin.setText(consumption.getOrigin().getName().toString());
                 consumptionDescription.setText(consumption.getDescription());
                 consumptionUnits.setText(consumption.getUnits().toString());
-                consumptionTotalWeight.setText(consumption.getTotalUnitsWeight().toString());
+                consumptionTotalWeight.setText(consumption.getTotalUnitsWeight().toString() + " gr.");
 
             }
 

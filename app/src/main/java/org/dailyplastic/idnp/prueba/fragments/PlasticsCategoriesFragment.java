@@ -17,10 +17,13 @@ import org.dailyplastic.idnp.prueba.adapters.CategoryGridViewAdapter;
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.interfaces.CategoryService;
 import org.dailyplastic.idnp.prueba.model.Category;
+import org.dailyplastic.idnp.prueba.model.Plastic;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,7 +67,10 @@ public class PlasticsCategoriesFragment extends Fragment {
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                categories = response.body();
+                categories = response.body()
+                        .stream()
+                        .sorted(Comparator.comparing(Category::getName))
+                        .collect(Collectors.toList());;
                 //Colocacion de los datos en el gridView
 
                 CategoryGridViewAdapter adapter = new CategoryGridViewAdapter(getActivity(), categories);

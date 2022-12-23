@@ -17,9 +17,12 @@ import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.interfaces.CategoryService;
 import org.dailyplastic.idnp.prueba.interfaces.PresentationService;
 import org.dailyplastic.idnp.prueba.model.Category;
+import org.dailyplastic.idnp.prueba.model.Plastic;
 import org.dailyplastic.idnp.prueba.model.Presentation;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,7 +63,10 @@ public class PlasticsPresentationsFragment extends Fragment {
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                presentations = response.body();
+                presentations = response.body()
+                        .stream()
+                        .sorted(Comparator.comparing(Presentation::getName))
+                        .collect(Collectors.toList());;
                 //Colocacion de los datos en el gridView
                 PresentationGridViewAdapter adapter = new PresentationGridViewAdapter(getActivity(), presentations);
                 presentationsGridView.setAdapter(adapter);

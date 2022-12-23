@@ -24,7 +24,9 @@ import org.dailyplastic.idnp.prueba.model.Plastic;
 import org.dailyplastic.idnp.prueba.model.Presentation;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,7 +89,10 @@ public class ListPlasticsFragment extends Fragment implements SearchView.OnQuery
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                plasticList = response.body();
+                plasticList = response.body()
+                        .stream()
+                        .sorted(Comparator.comparing(Plastic::getName))
+                        .collect(Collectors.toList());;
                 plasticRecyclerViewAdapter = new PlasticRecyclerViewAdapter(plasticList, getParentFragmentManager());
                 recyclerViewPlastics.setAdapter(plasticRecyclerViewAdapter);
 

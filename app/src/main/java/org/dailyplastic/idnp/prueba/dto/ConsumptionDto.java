@@ -7,7 +7,7 @@ public class ConsumptionDto {
     Integer origin;
     String image;
     String description;
-    Integer unit;
+    Integer units;
     String updated;
 
     public ConsumptionDto() {
@@ -20,7 +20,7 @@ public class ConsumptionDto {
         this.origin = origin;
         this.image = image;
         this.description = description;
-        this.unit = unit;
+        this.units = unit;
         this.updated = updated;
     }
 
@@ -73,11 +73,11 @@ public class ConsumptionDto {
     }
 
     public Integer getUnit() {
-        return unit;
+        return units;
     }
 
     public void setUnit(Integer unit) {
-        this.unit = unit;
+        this.units = unit;
     }
 
     public String getUpdated() {
@@ -97,7 +97,7 @@ public class ConsumptionDto {
                 ", origin=" + origin +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
-                ", unit=" + unit +
+                ", unit=" + units +
                 ", updated='" + updated + '\'' +
                 '}';
     }
