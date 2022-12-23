@@ -49,10 +49,10 @@ public class PlasticsDescriptionFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Plastic p = new Plastic(1, "a", "a", "a", 1, 1, "a", "a");
+        //Plastic p = new Plastic(1, "a", "a", "a", 1, 1, "a", "a");
         View v = inflater.inflate(R.layout.fragment_plastics_description, container);
 
-         TextView c,pr,a,pe;
+        /* TextView c,pr,a,pe;
 
         c = v.findViewById(R.id.categoria);
         pr = v.findViewById(R.id.presentacion);
@@ -62,7 +62,7 @@ public class PlasticsDescriptionFragment extends DialogFragment {
         c.setText(p.getCategory());
         pr.setText(p.getPresentation());
         a.setText(p.getDecompositionTime().toString());
-        pe.setText(p.getUnitWeight().toString());
+        pe.setText(p.getUnitWeight().toString());*/
 
         return v;
     }

@@ -8,8 +8,7 @@
     android:layout_height="170dp"
     android:layout_gravity="center"
     android:background="@color/white"
-    tools:layout_editor_absoluteY="247dp"
-    tools:context=".prueba.fragments.Card_Item_OnClick">
+    tools:layout_editor_absoluteY="247dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +28,6 @@
             android:layout_margin="0dp"
             android:layout_marginTop="24dp"
 
-            android:onClick="showDescription"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
