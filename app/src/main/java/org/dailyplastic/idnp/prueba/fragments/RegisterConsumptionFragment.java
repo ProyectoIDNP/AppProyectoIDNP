@@ -51,9 +51,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterConsumptionFragment extends Fragment {
-
-    List<Category> listCategories;
-    List<Presentation> listPresentations;
     List<Origin> listOrigins;
     List<Plastic> listPlastics;
 
@@ -69,7 +66,6 @@ public class RegisterConsumptionFragment extends Fragment {
     EditText description;
     EditText presentation;
     EditText category;
-    EditText origin;
     Spinner spinnerPlastic;
     Spinner spinnerOrigin;
 

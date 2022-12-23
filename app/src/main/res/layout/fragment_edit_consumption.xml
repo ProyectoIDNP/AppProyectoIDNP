@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,39 +8,49 @@
 
 
     <View
-        android:layout_width="match_parent"
+        android:id="@+id/view"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         android:background="@drawable/oval_bottom"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mi consumo"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrar mi consumo"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/rounded_bottom"
-        android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        android:paddingVertical="20dp">
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
@@ -49,7 +60,11 @@
                 android:layout_gravity="center"
 
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                app:cardElevation="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -58,253 +73,191 @@
                     android:src="@drawable/ic_image_not_available" />
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre de Plástico" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:gravity="center"
                 android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/spinnerConsumptionPlasticEdit"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="@drawable/style_spinner"
+                    android:spinnerMode="dropdown" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nombre de plastico"
-                        android:textSize="12dp" />
-
-                    <EditText
-                        android:id="@+id/editPlasticName"
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_edit_text"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingVertical="5dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom"
-                    android:maxWidth="50dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/buttonSearchPlastics"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/oval_bottom"
-                        android:backgroundTint="@color/green_primary"
-                        android:drawableBottom="@drawable/ic_baseline_search_24"
-                        android:paddingBottom="5dp"
-                        android:textColor="@color/white" />
-                </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forma de Presentación" />
+
+            <EditText
+                android:id="@+id/editTextConsumptionPlasticPresentationEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:background="@drawable/shape_edit_text"
+                android:inputType="textPersonName" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Forma de presentacion"
-                        android:textSize="12dp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerFormPresentation"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:background="@drawable/shape_edit_text"
-                        android:gravity="center"
-                        android:spinnerMode="dialog" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="152dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
-                    android:minWidth="180dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Categoria"
-                        android:textSize="12dp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerCategory"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/shape_edit_text"
-                        android:spinnerMode="dialog" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Unidades"
-                        android:textSize="12dp" />
+                        android:layout_weight="1"
+                        android:text="Categoría" />
 
                     <EditText
-                        android:id="@+id/editUnits"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/editTextConsumptionPlasticCategoryEdit"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:background="@drawable/shape_edit_text"
+                        android:inputType="textPersonName" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:text="Unidades" />
+
+                    <EditText
+                        android:id="@+id/editTextUnitsConsumptionEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
                         android:background="@drawable/shape_edit_text"
                         android:ems="10"
-                        android:inputType="number"
-                        android:maxWidth="250dp"
-                        android:paddingVertical="5dp" />
+                        android:inputType="number" />
                 </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="151dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:minWidth="180dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fecha"
-                        android:textSize="12dp" />
-
-                    <EditText
-                        android:id="@+id/editDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_edit_text"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:maxWidth="250dp"
-                        android:paddingVertical="5dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hora"
-                        android:textSize="12dp" />
-
-                    <EditText
-                        android:id="@+id/editTime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_edit_text"
-                        android:ems="10"
-                        android:inputType="time"
-                        android:paddingVertical="5dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="51dp"
-                android:layout_marginVertical="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Origen"
-                        android:textSize="12dp" />
-
-                    <Spinner
-                        android:id="@+id/spinnerOrigin"
+                        android:id="@+id/textView16"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Fecha" />
+
+                    <EditText
+                        android:id="@+id/editTextConsumptionDateEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
                         android:background="@drawable/shape_edit_text"
-                        android:gravity="center"
-                        android:spinnerMode="dialog" />
+                        android:inputType="date" />
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewdf17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Hora" />
+
+                    <EditText
+                        android:id="@+id/editTextUnitsConsumptionHourEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_edit_text"
+                        android:ems="10"
+                        android:inputType="time" />
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:orientation="horizontal"
-                android:paddingBottom="20dp">
+                android:text="Origen" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Descripcion"
-                        android:textSize="12dp" />
-
-                    <EditText
-                        android:id="@+id/editDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:background="@drawable/shape_edit_text"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingVertical="5dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonRegisterComsumption"
+            <Spinner
+                android:id="@+id/spinnerConsumptionOriginEdit"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripción" />
+
+            <EditText
+                android:id="@+id/editTextUnitsConsumptionDescriptionEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:background="@drawable/shape_edit_text"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/buttonEditComsumption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/rounded_bottom"
                 android:backgroundTint="@color/green_primary"
                 android:gravity="center"
                 android:text="Guardar"
-                android:textColor="@color/white"
-                android:textSize="12dp" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

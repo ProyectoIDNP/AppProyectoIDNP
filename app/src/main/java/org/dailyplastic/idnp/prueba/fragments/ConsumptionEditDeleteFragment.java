@@ -34,10 +34,12 @@ public class ConsumptionEditDeleteFragment extends Fragment{
     TextView consumptionTotalWeight;
     Button consumptionEdit, consumptionDelete;
     ImageView consumptionImage;
+    Consumption consumption;
 
     ConsumptionService consumptionService;
 
     MyPlasticConsumptionFragment myPlasticConsumptionFragment = new MyPlasticConsumptionFragment();
+    EditConsumptionFragment editConsumptionFragment = new EditConsumptionFragment();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,10 +71,18 @@ public class ConsumptionEditDeleteFragment extends Fragment{
 
         consumptionImage.setImageResource(R.drawable.ic_image_not_available);
 
+        Integer idConsumption = dataRecovery.getInt("idConsumption");
+
         consumptionEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getParentFragmentManager().beginTransaction().replace(R.id.container, myPlasticConsumptionFragment).commit();
+                Bundle dataSend = new Bundle();
+                dataSend.putInt("consumption", idConsumption);
+
+                //Envio del ID del consumo
+                EditConsumptionFragment editConsumptionFragment = new EditConsumptionFragment();
+                editConsumptionFragment.setArguments(dataSend);
+                getParentFragmentManager().beginTransaction().replace(R.id.container, editConsumptionFragment).commit();
             }
         });
 
@@ -83,7 +93,7 @@ public class ConsumptionEditDeleteFragment extends Fragment{
             }
         });
 
-        Integer idConsumption = dataRecovery.getInt("idConsumption");
+
 
         getOne(idConsumption);
         return consumptionDetailFragment;
@@ -103,7 +113,7 @@ public class ConsumptionEditDeleteFragment extends Fragment{
                     Log.e("Response err: ", response.message());
                     return;
                 }
-                Consumption consumption = response.body();
+                consumption = response.body();
                 System.out.println(consumption);
                 consumptionName.setText(consumption.getPlastic().getName().toString());
                 consumptionCategory.setText(consumption.getPlastic().getCategory().getName().toString());
