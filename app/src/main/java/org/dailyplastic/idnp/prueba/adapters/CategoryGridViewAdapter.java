@@ -13,14 +13,17 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import org.dailyplastic.idnp.prueba.fragments.PlasticsDescriptionFragment;
 import org.dailyplastic.idnp.prueba.model.Category;
 
 import java.util.List;
 
 import org.dailyplastic.idnp.R;
 
-public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
+public class CategoryGridViewAdapter extends ArrayAdapter<Category> {
 
     public CategoryGridViewAdapter(@NonNull Context context, List<Category> courseModelArrayList) {
         super(context, 0, courseModelArrayList);
@@ -43,7 +46,6 @@ public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
         ConstraintLayout categoryContainerTextView = listItemView.findViewById(R.id.cardItemContainerTextView);
 
         categoryTextView.setText(categoryModel.getName());
-
 
         String categoryAcronym = splitName(categoryModel.getName());
 
@@ -90,8 +92,4 @@ public class CategoryGridViewAdapter extends ArrayAdapter<Category>{
         String bar = foo. split(" ")[0];
         return bar;
     }
-
-
-    
-
 }

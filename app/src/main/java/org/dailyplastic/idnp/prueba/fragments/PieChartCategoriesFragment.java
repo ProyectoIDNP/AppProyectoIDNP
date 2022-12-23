@@ -25,4 +25,6 @@ public class PieChartCategoriesFragment extends Fragment {
 
         return pieChartCategoriesFragment;
     }
+
+
 }

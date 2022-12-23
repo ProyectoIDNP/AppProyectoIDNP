@@ -115,8 +115,8 @@
                 android:id="@+id/spinnerConsumptionPresentationRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_edit_text"
-                android:spinnerMode="dialog" />
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -141,9 +141,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/shape_edit_text"
+                        android:background="@drawable/style_spinner"
                         android:gravity="center"
-                        android:spinnerMode="dialog" />
+                        android:spinnerMode="dropdown" />
 
                 </LinearLayout>
 
@@ -239,8 +239,8 @@
                 android:id="@+id/spinnerConsumptionOriginRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_edit_text"
-                android:spinnerMode="dialog" />
+                android:background="@drawable/style_spinner"
+                android:spinnerMode="dropdown" />
 
             <TextView
                 android:id="@+id/textView20"
