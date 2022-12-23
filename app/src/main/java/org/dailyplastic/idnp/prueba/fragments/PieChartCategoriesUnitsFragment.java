@@ -1,5 +1,8 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+import com.google.gson.Gson;
+
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.PlasticRecyclerViewAdapter;
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.dto.ReporteDto;
+import org.dailyplastic.idnp.prueba.dto.UserDto;
 import org.dailyplastic.idnp.prueba.interfaces.PlasticService;
 import org.dailyplastic.idnp.prueba.interfaces.ReportService;
 import org.dailyplastic.idnp.prueba.model.Plastic;
@@ -38,18 +44,25 @@ public class PieChartCategoriesUnitsFragment extends Fragment {
 
         View pieChartCategoriesUnitsFragment = inflater.inflate(R.layout.fragment_pie_chart_categories, container, false);
         linearLayout = pieChartCategoriesUnitsFragment.findViewById(R.id.pieChart);
-        getCategoryUnit();
+
+        //Recuperacion del id del usuario logueado
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("userLoggedIn", "");
+        UserDto userObj = gson.fromJson(json, UserDto.class);
+
+        getCategoryUnit(userObj.getUser().getId());
         return pieChartCategoriesUnitsFragment;
     }
 
-    private void getCategoryUnit() {
+    private void getCategoryUnit(Integer idUser) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         ReportService reportService = retrofit.create(ReportService.class);
-        Call<List<ReporteDto>> call = reportService.getCategoryUnits(19);
+        Call<List<ReporteDto>> call = reportService.getCategoryUnits(idUser);
         call.enqueue(new Callback<List<ReporteDto>>() {
             @Override
             public void onResponse(Call<List<ReporteDto>> call, Response<List<ReporteDto>> response) {

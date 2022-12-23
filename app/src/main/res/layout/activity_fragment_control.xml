@@ -18,7 +18,7 @@
      android:layout_height="wrap_content"
      android:layout_alignParentBottom="true"
      android:layout_marginBottom="0dp"
-     android:background="#009688"
+     android:background="@color/green_primary"
      app:itemIconTint="@color/white"
      app:itemTextColor="#FFFFFF"
      app:menu="@menu/button_navigation_menu" />

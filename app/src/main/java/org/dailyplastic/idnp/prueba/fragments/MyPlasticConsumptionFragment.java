@@ -1,11 +1,12 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,22 +17,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.ConsumptionRecyclerViewAdapter;
-import org.dailyplastic.idnp.prueba.adapters.PlasticRecyclerViewAdapter;
 import org.dailyplastic.idnp.prueba.constants.Constants;
+import org.dailyplastic.idnp.prueba.dto.UserDto;
 import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
-import org.dailyplastic.idnp.prueba.interfaces.PlasticService;
-import org.dailyplastic.idnp.prueba.model.Category;
 import org.dailyplastic.idnp.prueba.model.Consumption;
-import org.dailyplastic.idnp.prueba.model.Origin;
-import org.dailyplastic.idnp.prueba.model.Plastic;
-import org.dailyplastic.idnp.prueba.model.Presentation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kotlin.jvm.internal.Ref;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -92,13 +89,21 @@ public class MyPlasticConsumptionFragment extends Fragment implements SearchView
     }
 
     private void getAll() {
+        //Recuperacion del id del usuario logueado
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("userLoggedIn", "");
+        UserDto userObj = gson.fromJson(json, UserDto.class);
+
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         consumptionService = retrofit.create(ConsumptionService.class);
-        Call<List<Consumption>> call = consumptionService.getAll();
+
+        Call<List<Consumption>> call = consumptionService.getAllConsumptionByUserId(userObj.getUser().getId());
         call.enqueue(new Callback<List<Consumption>>() {
             @Override
             public void onResponse(Call<List<Consumption>> call, Response<List<Consumption>> response) {

@@ -1,5 +1,8 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
+
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.dto.ReporteDto;
+import org.dailyplastic.idnp.prueba.dto.UserDto;
 import org.dailyplastic.idnp.prueba.interfaces.ReportService;
 import org.dailyplastic.idnp.prueba.views.PieChart;
 
@@ -34,18 +40,24 @@ public class PieChartPresentationUnitsFragment extends Fragment {
 
         View pieChartPresentationUnitsFragment = inflater.inflate(R.layout.fragment_pie_chart_categories, container, false);
         linearLayout = pieChartPresentationUnitsFragment.findViewById(R.id.pieChart);
-        getPresentationUnits();
+        //Recuperacion del id del usuario logueado
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("userLoggedIn", "");
+        UserDto userObj = gson.fromJson(json, UserDto.class);
+
+        getPresentationUnits(userObj.getUser().getId());
         return pieChartPresentationUnitsFragment;
     }
 
-    private void getPresentationUnits() {
+    private void getPresentationUnits(Integer userId) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         ReportService reportService = retrofit.create(ReportService.class);
-        Call<List<ReporteDto>> call = reportService.getPresentationUnits(19);
+        Call<List<ReporteDto>> call = reportService.getPresentationUnits(userId);
         call.enqueue(new Callback<List<ReporteDto>>() {
             @Override
             public void onResponse(Call<List<ReporteDto>> call, Response<List<ReporteDto>> response) {

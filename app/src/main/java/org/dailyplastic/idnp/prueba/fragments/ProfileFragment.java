@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -34,14 +35,17 @@ public class ProfileFragment extends Fragment {
         Button buttonProfile = profileFragment.findViewById(R.id.button_edit_profile);
         Button buttonPassword = profileFragment.findViewById(R.id.button_change_password);
         Button buttonExit = profileFragment.findViewById(R.id.button_exit);
+        TextView textViewNameUserLogin = profileFragment.findViewById(R.id.textViewNameUserLogin);
 
 
-        SharedPreferences  mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        //Recuperacion del id del usuario logueado
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("userLoggedIn", "");
-        UserDto obj = gson.fromJson(json, UserDto.class);
+        UserDto userObj = gson.fromJson(json, UserDto.class);
 
-        System.out.println("PPPPPPPPPPPPP: " + obj);
+        textViewNameUserLogin.setText(userObj.getUser().getUsername());
+
 
         buttonProfile.setOnClickListener(new View.OnClickListener(){
             @Override

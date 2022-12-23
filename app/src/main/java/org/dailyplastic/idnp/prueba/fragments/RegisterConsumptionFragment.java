@@ -1,6 +1,9 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.admin.SystemUpdatePolicy;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,12 +18,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.adapters.CategoryGridViewAdapter;
 import org.dailyplastic.idnp.prueba.adapters.PlasticRecyclerViewAdapter;
 import org.dailyplastic.idnp.prueba.adapters.PresentationGridViewAdapter;
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.dto.ConsumptionDto;
+import org.dailyplastic.idnp.prueba.dto.UserDto;
 import org.dailyplastic.idnp.prueba.interfaces.CategoryService;
 import org.dailyplastic.idnp.prueba.interfaces.ConsumptionService;
 import org.dailyplastic.idnp.prueba.interfaces.OriginService;
@@ -100,11 +106,18 @@ public class RegisterConsumptionFragment extends Fragment {
                 Category valueCategory = (Category) spinnerCategories.getSelectedItem();
                 Origin valueOrigin = (Origin) spinnerOrigin.getSelectedItem();
 
+                //Recuperacion del id del usuario logueado
+                SharedPreferences mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+                Gson gson = new Gson();
+                String json = mPrefs.getString("userLoggedIn", "");
+                UserDto userObj = gson.fromJson(json, UserDto.class);
+
+
                 ConsumptionDto consumptionDto = new ConsumptionDto();
 
                 //Cambiar el id de plastico por la busqueda
                 consumptionDto.setPlastic(2);
-                consumptionDto.setUser(1);
+                consumptionDto.setUser(userObj.getUser().getId());
                 consumptionDto.setOrigin(valueOrigin.getId());
                 consumptionDto.setImage(null);
                 consumptionDto.setDescription(description.getText().toString());

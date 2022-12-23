@@ -11,11 +11,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="270dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/oval_form" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="10dp">
@@ -40,23 +41,30 @@
                     android:textSize="16sp" />
 
 
-                <ImageView
-                    android:id="@+id/imageNewUser"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight=".1"
-                    android:padding="2dp"
-                    app:srcCompat="@drawable/ic_launcher_background" />
+                    app:cardCornerRadius="250dp">
+
+                    <ImageView
+                        android:id="@+id/imageNewUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight=".1"
+                        android:padding="2dp"
+                        app:srcCompat="@drawable/ic_image_not_available" />
+                </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textViewName"
+                    android:id="@+id/textViewNameUserLogin"
                     android:layout_width="match_parent"
                     android:layout_height="67dp"
                     android:gravity="center"
                     android:text="Juan Torres"
                     android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>
