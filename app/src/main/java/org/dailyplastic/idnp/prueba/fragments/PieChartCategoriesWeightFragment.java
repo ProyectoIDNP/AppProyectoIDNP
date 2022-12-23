@@ -12,19 +12,17 @@ import android.widget.LinearLayout;
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.views.PieChart;
 
-public class PieChartCategoriesFragment extends Fragment {
+public class PieChartCategoriesWeightFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View pieChartCategoriesFragment = inflater.inflate(R.layout.fragment_pie_chart_categories, container, false);
-        LinearLayout linearLayout = (LinearLayout) pieChartCategoriesFragment.findViewById(R.id.pieChartCategories);
-        int[] values = {20, 20, 40, 100, 20, 10};
+        View pieChartCategoriesWeightFragment = inflater.inflate(R.layout.fragment_pie_chart_categories, container, false);
+        LinearLayout linearLayout = pieChartCategoriesWeightFragment.findViewById(R.id.pieChart);
+        int[] values = {200, 201, 40, 13, 20, 10};
         String[] data = {"PET o PETE (tereftalato de polietileno)", "HDPE (polietileno de alta densidad)", "PVC (policloruro de vinilo)", "LDPE (Polietileno de baja densidad)", "PP (Polipropileno)", "PS (Poliestireno)"};
         linearLayout.addView(new PieChart(getActivity(), values, data));
 
-        return pieChartCategoriesFragment;
+        return pieChartCategoriesWeightFragment;
     }
-
-
 }
