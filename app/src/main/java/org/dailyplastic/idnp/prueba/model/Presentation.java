@@ -51,11 +51,6 @@ public class Presentation {
 
     @Override
     public String toString() {
-        return "Presentation{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created='" + created + '\'' +
-                ", updated='" + updated + '\'' +
-                '}';
+        return name;
     }
 }

@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gris">#FFAAAAAA</color>
-    <color name="green_primary">#009688</color>
+    <color name="green_primary">#00ac83</color>
     <color name="green_secondary">#FF47CC65</color>
     <color name="green_tertiary">#FFB8EF84</color>
     <color name="green">#169C5D</color>
@@ -18,6 +18,7 @@
     <color name="greenC">#89FF00</color>
     <color name="blue">#0027FF</color>
     <color name="silver">#C3C8C8</color>
+    <color name="suaveTeal">#FFDBF0E1</color>
     <!-- Category Colors -->
     <color name="PET">#7A16FC</color>
     <color name="PEAD">#6E8166</color>
@@ -26,7 +27,7 @@
     <color name="PP">#36D78B</color>
     <color name="PS">#8EB6AB</color>
     <color name="O">#33A3EB</color>
-
+    <color name="verde_tela">#08AC84</color>
     <!-- Colors not avalaible or default-->
     <color name="Default">#FF000000</color>
 </resources>

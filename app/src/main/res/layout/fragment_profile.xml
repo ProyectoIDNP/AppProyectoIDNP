@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayoutProfile"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     tools:context=".prueba.fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="270dp"
+        android:background="@drawable/oval_form" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:gravity="center"
+                    android:text="Perfil"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+
+                <ImageView
+                    android:id="@+id/imageNewUser"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".1"
+                    android:padding="2dp"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:gravity="center"
+                    android:text="Juan Torres"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="274dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_edit_profile"
+                android:layout_width="269dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/button_profile"
+                android:drawableStart="@drawable/ic_edit_profile"
+                android:drawableEnd="@drawable/ic_line"
+                android:foregroundGravity="center_horizontal"
+                android:isScrollContainer="false"
+                android:text="Editar Perfil" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="271dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_change_password"
+                android:layout_width="269dp"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_profile"
+                android:drawableStart="@drawable/ic_edit_password"
+                android:drawableEnd="@drawable/ic_line"
+                android:text="Cambiar Contraseña" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="269dp"
+            android:layout_height="209dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_exit"
+                android:layout_width="269dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_profile"
+                android:drawableStart="@drawable/ic_exit_sesion"
+                android:text="Cerrar Sesion" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </FrameLayout>
