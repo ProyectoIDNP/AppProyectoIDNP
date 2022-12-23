@@ -1,7 +1,10 @@
 package org.dailyplastic.idnp.prueba.model;
 
-public class User {
+import java.io.Serializable;
 
+public class User implements Serializable {
+
+    public Integer id;
     public String email;
     public String username;
     public String password;

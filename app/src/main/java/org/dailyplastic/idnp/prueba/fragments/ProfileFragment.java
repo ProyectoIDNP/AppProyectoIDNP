@@ -1,6 +1,9 @@
 package org.dailyplastic.idnp.prueba.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,8 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.activities.MainMenuActivity;
+import org.dailyplastic.idnp.prueba.dto.UserDto;
 
 public class ProfileFragment extends Fragment {
 
@@ -28,6 +34,14 @@ public class ProfileFragment extends Fragment {
         Button buttonProfile = profileFragment.findViewById(R.id.button_edit_profile);
         Button buttonPassword = profileFragment.findViewById(R.id.button_change_password);
         Button buttonExit = profileFragment.findViewById(R.id.button_exit);
+
+
+        SharedPreferences  mPrefs = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("userLoggedIn", "");
+        UserDto obj = gson.fromJson(json, UserDto.class);
+
+        System.out.println("PPPPPPPPPPPPP: " + obj);
 
         buttonProfile.setOnClickListener(new View.OnClickListener(){
             @Override

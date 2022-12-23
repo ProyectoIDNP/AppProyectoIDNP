@@ -279,7 +279,9 @@
                             android:id="@+id/ButtonDelete"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
                             android:background="@drawable/button_drawable_grey"
+                            android:drawableLeft="@drawable/ic_baseline_trash"
                             android:text="Eliminar"
                             android:textColor="@color/black"
                             android:textSize="10dp" />
@@ -288,7 +290,9 @@
                             android:id="@+id/ButtonEdit"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
                             android:background="@drawable/button_drawable_green_primary"
+                            android:drawableLeft="@drawable/ic_baseline_edit"
                             android:text="Modificar"
                             android:textColor="@color/white"
                             android:textSize="10dp" />

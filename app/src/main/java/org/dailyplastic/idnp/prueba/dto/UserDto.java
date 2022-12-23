@@ -2,7 +2,9 @@ package org.dailyplastic.idnp.prueba.dto;
 
 import org.dailyplastic.idnp.prueba.model.User;
 
-public class UserDto {
+import java.io.Serializable;
+
+public class UserDto implements Serializable {
     String token;
     User user;
 

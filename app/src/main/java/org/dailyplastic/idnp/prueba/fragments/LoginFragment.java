@@ -1,5 +1,6 @@
 package org.dailyplastic.idnp.prueba.fragments;
 import static android.content.ContentValues.TAG;
+import static android.content.Context.MODE_PRIVATE;
 
 import org.dailyplastic.idnp.prueba.constants.Constants;
 import org.dailyplastic.idnp.prueba.dto.UserDto;
@@ -21,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import org.dailyplastic.idnp.R;
 import org.dailyplastic.idnp.prueba.activities.FragmentControlActivity;
@@ -84,6 +87,13 @@ public class LoginFragment extends Fragment {
                  * AQUI ES DONDE SE DEBE ENVIAR O ALMACENAR EL userReceived DE FORMA GLOBAL
                  * userReceived  ES LA RESPUESTA QUE CONTIENE LOS DATOS DEL USUARIO
                  */
+                SharedPreferences  mPrefs = getActivity().getSharedPreferences("userInfo",MODE_PRIVATE);
+
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(userReceived);
+                prefsEditor.putString("userLoggedIn", json);
+                prefsEditor.commit();
                 
 
                 AlertDialog.Builder alertLogin = new AlertDialog.Builder(getContext());
