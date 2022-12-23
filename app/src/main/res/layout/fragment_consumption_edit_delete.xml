@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/shape_background"
-    tools:context=".prueba.fragments.PlasticsDescriptionFragment">
+    tools:context=".prueba.fragments.ConsumptionEditDeleteFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_width="216dp"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="Plástico"
+                android:text="Consumo"
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -71,7 +71,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/PlasticName"
+                        android:id="@+id/textViewConsumptionDetailName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
@@ -110,7 +110,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListCategoria"
+                                android:id="@+id/textViewConsumptionCategory"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -139,7 +139,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListPresentacion"
+                                android:id="@+id/textViewConsumptionPresentation"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -169,7 +169,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListOrigen"
+                                android:id="@+id/textViewConsumptionOrigin"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -199,7 +199,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListDescription"
+                                android:id="@+id/textViewConsumptionDescription"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -229,7 +229,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListCantidad"
+                                android:id="@+id/textViewConsumptionUnits"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -259,7 +259,7 @@
                             android:layout_marginBottom="10dp">
 
                             <TextView
-                                android:id="@+id/ListPeso"
+                                android:id="@+id/textViewConsumptionWeight"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
@@ -275,19 +275,19 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="25dp">
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <Button
                             android:id="@+id/ButtonDelete"
                             android:layout_width="150dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:background="@drawable/button_drawable_grey"
                             android:text="Eliminar"
                             android:textColor="@color/black"
                             android:textSize="10dp" />
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <Button
                             android:id="@+id/ButtonEdit"
                             android:layout_width="150dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:background="@drawable/button_drawable_green_primary"
                             android:text="Modificar"
                             android:textColor="@color/white"
