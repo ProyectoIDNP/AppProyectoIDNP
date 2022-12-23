@@ -42,12 +42,12 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName"
+                        android:id="@+id/editTextRegisterName"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#000000"
                         android:ems="10"
-                        android:hint="Nombre"
+                        android:hint="Nombre de usuario"
                         android:inputType="textPersonName"
                         android:singleLine="false"
                         android:textColor="#000000"
@@ -55,33 +55,33 @@
                         android:textSize="13dp" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName3"
+                        android:id="@+id/editTextTextRegisterEmail"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="#000000"
                         android:ems="10"
                         android:hint="Correo"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
                         android:textColor="#000000"
                         android:textColorHint="#A8A8A8"
                         android:textSize="13dp" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName6"
+                        android:id="@+id/editTextTextRegisterPassword"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:backgroundTint="#000000"
                         android:ems="10"
                         android:hint="Contraseña"
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:textColor="#000000"
                         android:textColorHint="#A8A8A8"
                         android:textSize="13dp" />
 
                     <CheckBox
-                        android:id="@+id/checkBox"
+                        android:id="@+id/checkBoxRegisterConditions"
                         android:layout_width="205dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -92,7 +92,7 @@
                         android:textSize="8dp" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/buttonRegistrarse"
+                        android:id="@+id/buttonRegisterUser"
                         android:layout_width="160dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

@@ -33,13 +33,13 @@ public class LoginFragment extends Fragment {
             User auxUser;
 
             public void initialize_Users(){
-                Users.add(new User("admin","1234"));
-                Users.add(new User("user","1234"));
+                Users.add(new User("", "admin","1234"));
+                Users.add(new User("", "user","1234"));
             }
             public boolean find_User(User use){
                 boolean exist=false;
                 for (int i = 0; i < Users.size(); ++i){
-                    if (use.emailOrName.equals( Users.get(i).emailOrName) && use.password.equals( Users.get(i).password))
+                    if (use.getUsername().equals( Users.get(i).getUsername()) && use.password.equals( Users.get(i).password))
                         return true;
                 }
                 return false;
@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 initialize_Users();
-                auxUser = new User(emailOrName.getText().toString(), password.getText().toString());
+                auxUser = new User("", emailOrName.getText().toString(), password.getText().toString());
                 if(find_User(auxUser)==true){
                     Log.d(TAG, "Inicio de sesion realizado con éxito "+auxUser+"!");
                     Intent intentMainActivity = new Intent(getActivity(), FragmentControlActivity.class);
